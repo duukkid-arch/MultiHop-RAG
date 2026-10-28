@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MultiHop RAG · MUSA 文献助手</title><link rel="stylesheet" href="/style.css"></head>
+<body><div class="shell">
+<aside class="sidebar"><div class="brand"><span class="symbol">M</span><div><strong>MultiHop RAG</strong><span>Medical Literature Workspace</span></div></div>
+<div class="section-head"><span>我的文献库</span><span id="counts">0 篇</span></div>
+<label class="upload" for="files"><span class="plus">＋</span> 添加论文 PDF / Word <small>可一次选择多篇，单篇 ≤20 MB</small></label>
+<input id="files" type="file" accept=".pdf,.docx,.txt,.md" multiple hidden>
+<div id="upload-status" class="status" role="status"></div>
+<div class="dochead">文献文件 <button id="refresh" type="button">刷新</button></div><div id="documents" class="documents"></div>
+<div class="sidebar-end"><span class="dot"></span> <span id="backend">连接中…</span><div class="subnote">单用户本地服务 · 请通过 SSH 安全访问</div></div></aside>
+<main class="main"><header><div><span class="eyebrow">RESEARCH ASSISTANT</span><h1>向医学论文提出问题</h1><p>本地 MUSA 语义检索 + 可选云端大模型 · 展示可核对的原文证据</p></div><button id="clear" type="button" class="clear">新对话</button></header>
+<section class="settings"><label>检索模式<select id="mode"><option value="hybrid_ce">Hybrid + Cross-Encoder</option><option value="hybrid">Hybrid（无精排）</option><option value="bm25">仅 BM25 对照</option></select></label>
+<label class="check"><input type="checkbox" id="generate" checked>大模型综合回答</label><label class="check"><input type="checkbox" id="plan">LLM 分解检索问题</label></section>
+<section id="feed" class="feed" aria-live="polite"><div class="welcome"><div class="welcome-icon">✦</div><h2>让论文变成可以对话的知识库</h2><p>先从左侧上传精神病学或心外科论文，然后用中文提问。英文原文也能通过 BGE-M3 检索。</p><div class="samples"><button data-prompt="根据上传的论文，氯氮平在难治性精神分裂症中的疗效与主要安全风险是什么？">精神病学：氯氮平的疗效与风险</button><button data-prompt="比较上传论文中 TAVR 与外科主动脉瓣置换术的临床结局和研究局限。">心外科：TAVR 与 SAVR 的证据</button></div></div></section>
+<section class="composer"><div id="error" class="error" role="alert"></div><form id="form"><textarea id="question" placeholder="用中文提问，例如：比较这几篇论文的研究对象、结果和局限性…" rows="2" maxlength="2500"></textarea><button id="send" type="submit">发送 <span>↗</span></button></form><div class="disclaimer">回答仅用于文献研究，不代替医疗诊断；医学结论请核对原文、数据与引用。</div></section></main></div>
+<script src="/app.js" defer></script></body></html>

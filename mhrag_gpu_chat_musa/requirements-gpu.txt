@@ -1,0 +1,10 @@
+# Use the preinstalled, MUSA-compatible PyTorch + torch_musa environment.
+# DO NOT install torch from PyPI on an MTT S4000 instance.
+# Already present on verified MTT S4000 runtime:
+# numpy
+# sentence-transformers
+# transformers
+# torch (MUSA build)
+# torch_musa
+# To parse text PDF if neither pdftotext nor pypdf are present:
+PyMuPDF>=1.24,<2
