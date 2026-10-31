@@ -1,0 +1,1740 @@
+{
+  "description": "Frozen questions from 2026-10-31 v12.1 393-call evaluation; gold IDs are local-only scoring labels, do not send to API. Stress variants not independent.",
+  "source": "user-uploaded agentic_v12_1_review.zip/results/v12_1_baseline/results.jsonl",
+  "cases": [
+    {
+      "phase": "baseline",
+      "parent_id": "abstain_001",
+      "variant": 0,
+      "split": "abstention",
+      "kind": "overclaim_challenge",
+      "question": "GASH试验已经证实格列本脲降低6个月死亡率多少百分比？",
+      "reference": "只提供研究方案，不能由该论文计算治疗效果。",
+      "gold_ids": [
+        52
+      ],
+      "case_id": "abstain_001"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "abstain_002",
+      "variant": 0,
+      "split": "abstention",
+      "kind": "overclaim_challenge",
+      "question": "BESS研究是否证明给每位重症毛细支气管炎患儿使用poractant alfa必然有益？",
+      "reference": "不能；该试验主要结局未显示改善。",
+      "gold_ids": [
+        44
+      ],
+      "case_id": "abstain_002"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "abstain_003",
+      "variant": 0,
+      "split": "abstention",
+      "kind": "overclaim_challenge",
+      "question": "Focus Pro研究有没有证明数字疗法可以让所有ADHD儿童停止药物？",
+      "reference": "没有，研究对象接受哌甲酯联合或单用治疗，不能推断停药。",
+      "gold_ids": [
+        55
+      ],
+      "case_id": "abstain_003"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "abstain_004",
+      "variant": 0,
+      "split": "abstention",
+      "kind": "overclaim_challenge",
+      "question": "加拿大儿童屏幕时间队列是否能证明增加屏幕时长必然导致每名儿童数学能力下降？",
+      "reference": "不能将观察性群体关联推断为个体必然因果。",
+      "gold_ids": [
+        56
+      ],
+      "case_id": "abstain_004"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "abstain_005",
+      "variant": 0,
+      "split": "abstention",
+      "kind": "overclaim_challenge",
+      "question": "养育干预荟萃分析是否证明所有干预必然减少家长抑郁症状？",
+      "reference": "不能，相关合并结果未达到统计学显著。",
+      "gold_ids": [
+        54
+      ],
+      "case_id": "abstain_005"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "abstain_006",
+      "variant": 0,
+      "split": "abstention",
+      "kind": "overclaim_challenge",
+      "question": "Zador等NeuroAI观点是否报告了动物具身图灵测试的临床疗效数据？",
+      "reference": "没有，该文为研究观点，并非临床试验。",
+      "gold_ids": [
+        65
+      ],
+      "case_id": "abstain_006"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "abstain_007",
+      "variant": 0,
+      "split": "abstention",
+      "kind": "overclaim_challenge",
+      "question": "果蝇LIF全脑模型是否已直接证明人类精神疾病可据此治疗？",
+      "reference": "没有；动物计算模型研究不等于人类临床疗效。",
+      "gold_ids": [
+        63
+      ],
+      "case_id": "abstain_007"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "abstain_008",
+      "variant": 0,
+      "split": "abstention",
+      "kind": "overclaim_challenge",
+      "question": "Cox的23人ICI队列能否证明该治疗已获批准用于健康人皮肤癌预防？",
+      "reference": "不能；报告相关性及未来研究需要，未建立这一适应证。",
+      "gold_ids": [
+        67
+      ],
+      "case_id": "abstain_008"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "abstain_009",
+      "variant": 0,
+      "split": "abstention",
+      "kind": "overclaim_challenge",
+      "question": "CUPID-C能否证明度普利尤单抗对所有荨麻疹患者都有效？",
+      "reference": "不能；研究限于特定纳入条件的患者，不能外推所有患者。",
+      "gold_ids": [
+        68
+      ],
+      "case_id": "abstain_009"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "abstain_010",
+      "variant": 0,
+      "split": "abstention",
+      "kind": "overclaim_challenge",
+      "question": "BE RADIANT是否是连续3年没有换药的双盲随机平行对照试验？",
+      "reference": "不是；48周双盲后进入开放标签延长期且部分患者换药。",
+      "gold_ids": [
+        69
+      ],
+      "case_id": "abstain_010"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "abstain_011",
+      "variant": 0,
+      "split": "abstention",
+      "kind": "overclaim_challenge",
+      "question": "Heads Up是否证明乌帕替尼完全不存在严重感染风险？",
+      "reference": "不能；论文报告部分感染相关事件在乌帕替尼组更多。",
+      "gold_ids": [
+        70
+      ],
+      "case_id": "abstain_011"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "abstain_012",
+      "variant": 0,
+      "split": "abstention",
+      "kind": "overclaim_challenge",
+      "question": "在没有患者病史信息的情况下，可否基于这些论文为某位具体患者确定治疗剂量？",
+      "reference": "不能；研究层面证据无法替代个体化临床评估。",
+      "gold_ids": [
+        70
+      ],
+      "case_id": "abstain_012"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "challenge_080_082_no_effect_size",
+      "variant": 0,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "仅根据两篇关于急性心肌梗死治疗创新和2025年心肌血运重建临床视角的文章，是否可以计算再生医学相对于全部传统再灌注方法的统一死亡率降低百分比？如果不能，请说明缺少哪些可比证据。",
+      "reference": "",
+      "gold_ids": [
+        80,
+        82
+      ],
+      "case_id": "challenge_080_082_no_effect_size"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "challenge_116_no_universal_cure",
+      "variant": 0,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "仅依据《What Is the Neurobiology of Schizophrenia?》这篇文献，是否能断言一种药物在随机试验中治愈了所有精神分裂症患者？请严格区分机制假说、临床试验证据与没有证据的断言。",
+      "reference": "",
+      "gold_ids": [
+        116
+      ],
+      "case_id": "challenge_116_no_universal_cure"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "compare_080_082_ami",
+      "variant": 0,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "比较《Innovations in the Treatment of Acute Myocardial Infarction in the Era of Precision and Intelligence》和《Myocardial Revascularization in 2025: A Clinical Perspective》：两篇文章的研究类型、治疗主题和对未来技术的讨论有哪些异同？请分别引用两篇原文。",
+      "reference": "",
+      "gold_ids": [
+        80,
+        82
+      ],
+      "case_id": "compare_080_082_ami"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "compare_081_085_autoimmune",
+      "variant": 0,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "比较《Autoimmune Diseases: Molecular Pathogenesis and Therapeutic Targets》和《Update on systemic lupus erythematosus: A review》：两篇文章覆盖的疾病范围、免疫机制与治疗证据有何不同？分别给出证据，勿把综述混同为随机疗效试验。",
+      "reference": "",
+      "gold_ids": [
+        81,
+        85
+      ],
+      "case_id": "compare_081_085_autoimmune"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "compare_083_084_not_comparable",
+      "variant": 0,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "《Questions and Certainty in Diagnosis and Management of Acute Type B Aortic Dissection》与2025年American ACS Guideline讨论的临床疾病与证据类型是否相同？可否直接比较两者的治疗效果数值？请分别引用来源并说明不可比之处。",
+      "reference": "",
+      "gold_ids": [
+        83,
+        84
+      ],
+      "case_id": "compare_083_084_not_comparable"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "compare_098_099_psychiatry",
+      "variant": 0,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "请分别识别 fpsyt-16-1552992.pdf 与 fpsyt-16-1564004.pdf 的研究主题、研究设计和主要结论；如果两篇研究人群或干预不同，说明为何不能直接合并疗效结论。",
+      "reference": "",
+      "gold_ids": [
+        98,
+        99
+      ],
+      "case_id": "compare_098_099_psychiatry"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "new_080_ami_innovation",
+      "variant": 0,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "根据《Innovations in the Treatment of Acute Myocardial Infarction in the Era of Precision and Intelligence》介绍文章所讨论的急性心肌梗死治疗技术方向；哪些是已开展的治疗，哪些是未来研究方向？",
+      "reference": "",
+      "gold_ids": [
+        80
+      ],
+      "case_id": "new_080_ami_innovation"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "new_081_autoimmune",
+      "variant": 0,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "在《Autoimmune Diseases: Molecular Pathogenesis and Therapeutic Targets》这篇文献中，作者讨论了哪些自身免疫病机制和治疗靶点？文章是随机疗效试验还是综述性工作？请引用原文。",
+      "reference": "",
+      "gold_ids": [
+        81
+      ],
+      "case_id": "new_081_autoimmune"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "new_082_revascularization",
+      "variant": 0,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "文献《Myocardial Revascularization in 2025: A Clinical Perspective》主要比较或讨论了哪些心肌血运重建策略？请说明文献性质、主要论点及证据局限，不要把观点写成随机试验结果。",
+      "reference": "",
+      "gold_ids": [
+        82
+      ],
+      "case_id": "new_082_revascularization"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "new_083_aortic_dissection",
+      "variant": 0,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "在《Questions and Certainty in Diagnosis and Management of Acute Type B Aortic Dissection》中，作者认为急性B型主动脉夹层的诊断或管理有哪些关键问题和证据不确定性？请提供来源页码。",
+      "reference": "",
+      "gold_ids": [
+        83
+      ],
+      "case_id": "new_083_aortic_dissection"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "new_084_acs_guideline",
+      "variant": 0,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "请定位文件《TTThe Long_Awaited American ACS Guideline_J Am Coll Cardiol_2025 .pdf》，说明其文章类型以及主要讨论的ACS临床指导原则，并指出是否是一项独立开展的随机疗效试验。",
+      "reference": "",
+      "gold_ids": [
+        84
+      ],
+      "case_id": "new_084_acs_guideline"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "new_085_sle_review",
+      "variant": 0,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "请根据文献《Update on systemic lupus erythematosus: A review》说明它属于哪类研究，讨论了哪些疾病机制与治疗方向？请明确区分已得到支持的结论和作者的研究展望，并给出引文。",
+      "reference": "",
+      "gold_ids": [
+        85
+      ],
+      "case_id": "new_085_sle_review"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "new_099_fpsyt_identify",
+      "variant": 0,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "文件 fpsyt-16-1564004.pdf 是研究什么主题的？请提取其研究类型、研究对象和主要结果，并区分作者结论与统计数据。",
+      "reference": "",
+      "gold_ids": [
+        99
+      ],
+      "case_id": "new_099_fpsyt_identify"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "new_104_jcm_identify",
+      "variant": 0,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "请找到名为 jcm-15-01379.pdf 的论文，先识别它实际研究的疾病或问题、研究设计以及主要结论；如果当前片段无法判断，请明确指出缺失信息并引用论文。",
+      "reference": "",
+      "gold_ids": [
+        104
+      ],
+      "case_id": "new_104_jcm_identify"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "new_110_preprint_status",
+      "variant": 0,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "请定位 preprints202511.0971.v1.pdf，说明其研究主题和文献性质。文献为预印本这一状态是否意味着其中的研究结论已获独立验证？请仅基于文献说明，不要推测。",
+      "reference": "",
+      "gold_ids": [
+        110
+      ],
+      "case_id": "new_110_preprint_status"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "new_116_neurobiology",
+      "variant": 0,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "根据《What Is the Neurobiology of Schizophrenia?》概括文献讨论的精神分裂症神经生物学机制和所引用的证据类型。请不要仅凭机制综述宣称某药物已被临床试验证明有效。",
+      "reference": "",
+      "gold_ids": [
+        116
+      ],
+      "case_id": "new_116_neurobiology"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_001",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "BESS试验针对什么患者群体、开展在哪些场所？",
+      "reference": "在英国15个儿科重症监护室开展，纳入因严重毛细支气管炎而需要有创机械通气、校正胎龄不足26周的婴儿。",
+      "gold_ids": [
+        44
+      ],
+      "case_id": "v9_001"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_002",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "BESS研究的对照操作和分配方式是什么？",
+      "reference": "随机1:1分配至气管内poractant alfa或假操作对照，采用盲法、平行组2期试验设计。",
+      "gold_ids": [
+        44
+      ],
+      "case_id": "v9_002"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_003",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "BESS所用poractant alfa的首次剂量和后续给药方案是什么？",
+      "reference": "首次200 mg/kg，随后可每12小时100 mg/kg；最多给药3次。",
+      "gold_ids": [
+        44
+      ],
+      "case_id": "v9_003"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_004",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "BESS试验随机分配了多少名婴儿，两组各多少？",
+      "reference": "共232人；poractant alfa组115人，假操作组117人。",
+      "gold_ids": [
+        44
+      ],
+      "case_id": "v9_004"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_005",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "在BESS试验中主要终点是什么？",
+      "reference": "随机分组至最终成功拔管之间的有创机械通气持续时间。",
+      "gold_ids": [
+        44
+      ],
+      "case_id": "v9_005"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_006",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "BESS两组机械通气时长中位数分别是多少，差异显著吗？",
+      "reference": "干预组64.9小时、假操作组62.0小时；p=0.86，未见显著缩短。",
+      "gold_ids": [
+        44
+      ],
+      "case_id": "v9_006"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_007",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "BESS试验作者对该给药方案的临床使用作何结论？",
+      "reference": "在研究剂量和给药方式下未缩短机械通气时间，因此不建议用于此适应证；未发现临床显著安全问题。",
+      "gold_ids": [
+        44
+      ],
+      "case_id": "v9_007"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_008",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "GASH方案研究的疾病和候选治疗药物是什么？",
+      "reference": "动脉瘤性蛛网膜下腔出血；拟研究格列本脲作为辅助治疗。",
+      "gold_ids": [
+        52
+      ],
+      "case_id": "v9_008"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_009",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "GASH拟纳入患者的年龄与发病时间要求是什么？",
+      "reference": "年龄18–70岁，发病距入组不足96小时，并需放射学证实动脉瘤性蛛网膜下腔出血。",
+      "gold_ids": [
+        52
+      ],
+      "case_id": "v9_009"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_010",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "GASH预期招募多少例，采用什么分组方式？",
+      "reference": "预计80例，随机分到格列本脲和安慰剂两组。",
+      "gold_ids": [
+        52
+      ],
+      "case_id": "v9_010"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_011",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "GASH格列本脲给药剂量和疗程如何设置？",
+      "reference": "每日口服5 mg，持续21天。",
+      "gold_ids": [
+        52
+      ],
+      "case_id": "v9_011"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_012",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "GASH主要结局在何时衡量，用什么尺度？",
+      "reference": "6个月时以改良Rankin量表(mRS)判定，0–2为良好、3–6为不良。",
+      "gold_ids": [
+        52
+      ],
+      "case_id": "v9_012"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_013",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "GASH试验方案拟评估哪些次要结局？",
+      "reference": "6个月认知状态和健康调查、6个月死亡、迟发性脑缺血及严重药物不良事件。",
+      "gold_ids": [
+        52
+      ],
+      "case_id": "v9_013"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_014",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "GASH是已完成随机试验的疗效报告吗？",
+      "reference": "不是，论文为随机试验研究方案；摘要没有该试验最终疗效结果。",
+      "gold_ids": [
+        52
+      ],
+      "case_id": "v9_014"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_015",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "早期养育干预荟萃分析聚焦儿童出生后哪个年龄阶段？",
+      "reference": "出生后前3年内的养育干预。",
+      "gold_ids": [
+        54
+      ],
+      "case_id": "v9_015"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_016",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "这篇养育干预综述共纳入多少文章和独立随机试验？",
+      "reference": "111篇文章，对应102项独立随机对照试验。",
+      "gold_ids": [
+        54
+      ],
+      "case_id": "v9_016"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_017",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "养育干预在儿童认知发展方面的合并效应量及置信区间是多少？",
+      "reference": "SMD=0.32，95% CI 0.23–0.40。",
+      "gold_ids": [
+        54
+      ],
+      "case_id": "v9_017"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_018",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "养育干预对儿童语言发展的平均效果如何？",
+      "reference": "语言发展SMD=0.28，95% CI 0.18–0.37，为正向效果。",
+      "gold_ids": [
+        54
+      ],
+      "case_id": "v9_018"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_019",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "养育干预对儿童行为问题的效果方向和大小是什么？",
+      "reference": "行为问题减少，SMD=-0.13，95% CI -0.18至-0.08。",
+      "gold_ids": [
+        54
+      ],
+      "case_id": "v9_019"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_020",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "该荟萃分析对家长抑郁症状的结论是否显著？",
+      "reference": "没有显著下降，SMD=-0.07，95% CI -0.16至0.02，P=0.08。",
+      "gold_ids": [
+        54
+      ],
+      "case_id": "v9_020"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_021",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "含反应性养育的干预，在这篇荟萃分析中呈现了怎样的效果差异？",
+      "reference": "对部分儿童认知和语言发展、养育知识、实践及亲子互动等指标，含反应性养育的方案具有更大效果；仍应考虑异质性。",
+      "gold_ids": [
+        54
+      ],
+      "case_id": "v9_021"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_022",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "Focus Pro联用哌甲酯研究的研究类型、研究对象是什么？",
+      "reference": "单中心、双盲随机对照试验；6–12岁的ADHD儿童。",
+      "gold_ids": [
+        55
+      ],
+      "case_id": "v9_022"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_023",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "Focus Pro联合哌甲酯试验两组人数及干预持续时间？",
+      "reference": "总计85名；联合组44名、单用哌甲酯组41名；干预8周。",
+      "gold_ids": [
+        55
+      ],
+      "case_id": "v9_023"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_024",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "Focus Pro每天使用多久，训练重点是什么？",
+      "reference": "每天25分钟，针对注意力与执行功能。",
+      "gold_ids": [
+        55
+      ],
+      "case_id": "v9_024"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_025",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "该ADHD随机试验第12周为何时间节点？",
+      "reference": "第12周是完成8周干预后的随访评估时间点。",
+      "gold_ids": [
+        55
+      ],
+      "case_id": "v9_025"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_026",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "Focus Pro试验的客观神经认知评价采用什么测试？",
+      "reference": "使用TOVA（注意变量测试）的客观神经认知测量。",
+      "gold_ids": [
+        55
+      ],
+      "case_id": "v9_026"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_027",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "第8周Focus Pro联合组TOVA注意比较评分差异和效应量是多少？",
+      "reference": "联合组改善更明显；p=0.006，Cohen’s d=0.809。",
+      "gold_ids": [
+        55
+      ],
+      "case_id": "v9_027"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_028",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "Focus Pro研究中主观量表与客观神经认知测量是否显示同样的组间差异？",
+      "reference": "否。主观量表两组改善相近，但客观神经认知指标显示联合组更明显优势。",
+      "gold_ids": [
+        55
+      ],
+      "case_id": "v9_028"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_029",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "加拿大儿童屏幕时间与学业成绩研究采用了什么设计？",
+      "reference": "前瞻性观察性队列研究，连接屏幕时间记录和安大略省三、六年级标准化学业测试。",
+      "gold_ids": [
+        56
+      ],
+      "case_id": "v9_029"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_030",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "该屏幕时间研究两组年级对应多少儿童？",
+      "reference": "三年级3322名，六年级2084名。",
+      "gold_ids": [
+        56
+      ],
+      "case_id": "v9_030"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_031",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "研究中总屏幕时间每增加1小时，六年级数学较高成绩的OR是多少？",
+      "reference": "调整后OR 0.90，95% CI 0.84–0.96，P=0.002。",
+      "gold_ids": [
+        56
+      ],
+      "case_id": "v9_031"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_032",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "研究中比较了哪些屏幕活动类型？",
+      "reference": "总屏幕时间、电视和数字媒体时间、视频游戏时间。",
+      "gold_ids": [
+        56
+      ],
+      "case_id": "v9_032"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_033",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "该研究三年级阅读与数学的额外1小时总屏幕时间OR分别多少？",
+      "reference": "两者均为0.91；阅读95% CI 0.86–0.96，数学95% CI 0.86–0.96。",
+      "gold_ids": [
+        56
+      ],
+      "case_id": "v9_033"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_034",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "是否能根据该前瞻性队列直接断言屏幕时间导致成绩下降？",
+      "reference": "不能。该设计报告观察性关联，不能单凭结果确定因果关系。",
+      "gold_ids": [
+        56
+      ],
+      "case_id": "v9_034"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_035",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "加拿大研究关注的主要学业结局包括哪几个学科和年级？",
+      "reference": "三、六年级阅读、写作与数学的标准化成绩水平。",
+      "gold_ids": [
+        56
+      ],
+      "case_id": "v9_035"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_036",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "NeuroAI and Beyond基于何时举办的活动形成讨论？",
+      "reference": "基于2025年8月研讨会形成。",
+      "gold_ids": [
+        64
+      ],
+      "case_id": "v9_036"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_037",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "NeuroAI and Beyond提出哪五个核心方向？",
+      "reference": "具身、语言与交流、机器人、人类和机器学习、神经形态工程。",
+      "gold_ids": [
+        64
+      ],
+      "case_id": "v9_037"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_038",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "NeuroAI and Beyond怎样概括神经科学与AI的当前关系？",
+      "reference": "两个领域近年均有显著进展，但彼此联系仍较松散。",
+      "gold_ids": [
+        64
+      ],
+      "case_id": "v9_038"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_039",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "该论文如何定义其倡导的NeuroAI？",
+      "reference": "由神经科学知识启发的人工智能方向，旨在反过来改进AI算法并促进对生物神经计算的理解。",
+      "gold_ids": [
+        64
+      ],
+      "case_id": "v9_039"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_040",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "NeuroAI and Beyond是否仅聚焦语言模型训练？",
+      "reference": "不是，还讨论具身认知、机器人、学习和神经形态工程等方向。",
+      "gold_ids": [
+        64
+      ],
+      "case_id": "v9_040"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_041",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "这篇NeuroAI综述附录中使用了什么战略性分析框架？",
+      "reference": "使用SWOT，即优势、劣势、机会和威胁分析；含不同群体的观点。",
+      "gold_ids": [
+        64
+      ],
+      "case_id": "v9_041"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_042",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "NeuroAI and Beyond是否报告了临床随机试验的疗效估计？",
+      "reference": "没有。它属于领域前瞻与研究议程讨论，而非临床干预疗效试验。",
+      "gold_ids": [
+        64
+      ],
+      "case_id": "v9_042"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_043",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "Zador等论文提出的NeuroAI核心评估设想叫什么？",
+      "reference": "具身图灵测试（embodied Turing test）。",
+      "gold_ids": [
+        65
+      ],
+      "case_id": "v9_043"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_044",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "具身图灵测试希望AI动物模型在何种能力上接近真实动物？",
+      "reference": "在感觉运动世界中的交互能力与行为技能，而不仅是语言或游戏表现。",
+      "gold_ids": [
+        65
+      ],
+      "case_id": "v9_044"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_045",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "该NeuroAI观点论文重点倡导什么研究投入？",
+      "reference": "增加基础NeuroAI研究投入，以从神经科学中提取下一代人工智能原理。",
+      "gold_ids": [
+        65
+      ],
+      "case_id": "v9_045"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_046",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "作者为何认为语言和游戏测试不足以覆盖具身智能？",
+      "reference": "其关注人类特有或特长任务；大量感觉运动能力为人与其他动物共同拥有且更古老。",
+      "gold_ids": [
+        65
+      ],
+      "case_id": "v9_046"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_047",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "该文认为神经科学在人工智能历史上扮演什么角色？",
+      "reference": "为人工智能发展提供重要启发和基础，包括视觉学习、强化学习等思路。",
+      "gold_ids": [
+        65
+      ],
+      "case_id": "v9_047"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_048",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "Zador等论文是临床药物试验还是研究观点文章？",
+      "reference": "是NeuroAI方向的Perspective观点论文，不是临床药物试验。",
+      "gold_ids": [
+        65
+      ],
+      "case_id": "v9_048"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_049",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "该论文提出的具身测试能否直接代替医学RAG的答案准确率评测？",
+      "reference": "不能。其目标是动物模型的感觉运动交互技能，不是医学文献检索或问答准确率。",
+      "gold_ids": [
+        65
+      ],
+      "case_id": "v9_049"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_085",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "比较GASH与BESS两项研究的研究阶段及是否有最终疗效结果。",
+      "reference": "GASH是格列本脲辅助治疗动脉瘤性SAH的随机试验方案，未给出最终结果；BESS为已完成的2期随机假操作对照试验，其主要通气时长终点未见改善。",
+      "gold_ids": [
+        44,
+        52
+      ],
+      "case_id": "v9_085"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_086",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "GASH与BESS各自采用何种主要终点及评价时间？",
+      "reference": "GASH计划评价6个月mRS；BESS评价随机后至最终成功拔管的有创机械通气时长。",
+      "gold_ids": [
+        44,
+        52
+      ],
+      "case_id": "v9_086"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_087",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "比较GASH格列本脲与BESS表面活性剂的给药方式和疗程安排。",
+      "reference": "GASH拟每日口服格列本脲5 mg共21天；BESS气管内给予poractant alfa，首次200 mg/kg，后续每12小时100 mg/kg、最多3次。",
+      "gold_ids": [
+        44,
+        52
+      ],
+      "case_id": "v9_087"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_088",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "ADHD Focus Pro与BESS研究客观主要结局的方向分别如何？",
+      "reference": "Focus Pro+哌甲酯在8周TOVA注意指标优于哌甲酯单用；BESS中的poractant alfa没有缩短机械通气时间。不同人群和结局不可比较效应大小。",
+      "gold_ids": [
+        44,
+        55
+      ],
+      "case_id": "v9_088"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_089",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "比较Focus Pro试验与BESS在研究对象和对照处理上的区别。",
+      "reference": "前者为6–12岁ADHD儿童，比较哌甲酯+数字疗法与哌甲酯单用；后者是需有创机械通气的重症毛细支气管炎婴儿，比较气管内表面活性剂与假操作。",
+      "gold_ids": [
+        44,
+        55
+      ],
+      "case_id": "v9_089"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_090",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "Focus Pro试验与早期养育干预荟萃分析针对儿童什么年龄阶段，采取何种干预？",
+      "reference": "前者为6–12岁ADHD儿童的哌甲酯+数字疗法；后者为生命前3年内的养育干预。",
+      "gold_ids": [
+        54,
+        55
+      ],
+      "case_id": "v9_090"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_091",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "比较Focus Pro试验的客观注意力结果与早期养育干预综述的认知发展结果。",
+      "reference": "Focus Pro联合组第8周TOVA比较评分更佳（p=0.006）；养育干预荟萃分析认知发展SMD 0.32（95% CI 0.23–0.40）。两者指标和人群不同。",
+      "gold_ids": [
+        54,
+        55
+      ],
+      "case_id": "v9_091"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_092",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "两篇研究在证据汇总范围上有何不同？",
+      "reference": "Focus Pro是一项85名儿童单中心随机试验；养育干预研究是一篇汇集102项独立RCT的系统综述和荟萃分析。",
+      "gold_ids": [
+        54,
+        55
+      ],
+      "case_id": "v9_092"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_093",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "屏幕时间队列与养育干预荟萃分析的设计对因果推断有何影响？",
+      "reference": "屏幕时间为观察性前瞻队列，关联不等于因果；养育干预综合随机试验，能更直接评价相应干预效果，但仍存在异质性和偏倚风险。",
+      "gold_ids": [
+        54,
+        56
+      ],
+      "case_id": "v9_093"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_094",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "两项儿童发展研究分别采用什么研究对象年龄和结果指标？",
+      "reference": "屏幕时间研究分析小学三、六年级的阅读/数学等标准化成绩；养育干预综述研究生命前3年的认知、语言、运动等发展指标。",
+      "gold_ids": [
+        54,
+        56
+      ],
+      "case_id": "v9_094"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_095",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "比较两篇NeuroAI观点文献：一篇提出具身测试，另一篇提出哪些研究领域？",
+      "reference": "Zador等提出以感觉运动交互技能为中心的具身图灵测试；NeuroAI and Beyond梳理具身、语言、机器人、学习和神经形态工程五个方向。",
+      "gold_ids": [
+        64,
+        65
+      ],
+      "case_id": "v9_095"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_096",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "两篇NeuroAI文献是否报告临床随机试验治疗效果？它们的共同性质是什么？",
+      "reference": "都不是临床随机疗效试验，主要是领域观点和未来研究框架讨论，不能作为药物治疗效果证据。",
+      "gold_ids": [
+        64,
+        65
+      ],
+      "case_id": "v9_096"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_097",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "NeuroAI and Beyond与Zador等论文对具身智能的强调有什么交集与区别？",
+      "reference": "两篇均强调神经科学与AI结合及具身能力；NeuroAI and Beyond横跨五类研究议题，Zador等突出AI动物模型的感觉运动具身图灵测试。",
+      "gold_ids": [
+        64,
+        65
+      ],
+      "case_id": "v9_097"
+    },
+    {
+      "phase": "baseline",
+      "parent_id": "v9_098",
+      "variant": 0,
+      "split": "dev",
+      "kind": "regular",
+      "question": "比较ADHD数字疗法RCT与屏幕时间队列研究：能否将屏幕使用时长等同于数字干预疗效？",
+      "reference": "不能；前者是结构化数字疗法与哌甲酯组合的随机试验，评估ADHD注意力；后者是一般屏幕暴露与学业成绩的观察性关联，暴露和终点均不同。",
+      "gold_ids": [
+        55,
+        56
+      ],
+      "case_id": "v9_098"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "abstain_001",
+      "variant": 1,
+      "split": "abstention",
+      "kind": "overclaim_challenge",
+      "question": "请先分别确认证据来自哪些目标研究；比较时不得遗漏任一对象。问题：GASH试验已经证实格列本脲降低6个月死亡率多少百分比？",
+      "reference": "只提供研究方案，不能由该论文计算治疗效果。",
+      "gold_ids": [
+        52
+      ],
+      "case_id": "abstain_001__p1"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "abstain_001",
+      "variant": 2,
+      "split": "abstention",
+      "kind": "overclaim_challenge",
+      "question": "请区分原文研究结果、研究方案与参考文献列表；没有对应证据就明确说明。问题：GASH试验已经证实格列本脲降低6个月死亡率多少百分比？",
+      "reference": "只提供研究方案，不能由该论文计算治疗效果。",
+      "gold_ids": [
+        52
+      ],
+      "case_id": "abstain_001__p2"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "abstain_003",
+      "variant": 1,
+      "split": "abstention",
+      "kind": "overclaim_challenge",
+      "question": "请先分别确认证据来自哪些目标研究；比较时不得遗漏任一对象。问题：Focus Pro研究有没有证明数字疗法可以让所有ADHD儿童停止药物？",
+      "reference": "没有，研究对象接受哌甲酯联合或单用治疗，不能推断停药。",
+      "gold_ids": [
+        55
+      ],
+      "case_id": "abstain_003__p1"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "abstain_003",
+      "variant": 2,
+      "split": "abstention",
+      "kind": "overclaim_challenge",
+      "question": "请区分原文研究结果、研究方案与参考文献列表；没有对应证据就明确说明。问题：Focus Pro研究有没有证明数字疗法可以让所有ADHD儿童停止药物？",
+      "reference": "没有，研究对象接受哌甲酯联合或单用治疗，不能推断停药。",
+      "gold_ids": [
+        55
+      ],
+      "case_id": "abstain_003__p2"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "challenge_080_082_no_effect_size",
+      "variant": 1,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "请先分别确认证据来自哪些目标研究；比较时不得遗漏任一对象。问题：仅根据两篇关于急性心肌梗死治疗创新和2025年心肌血运重建临床视角的文章，是否可以计算再生医学相对于全部传统再灌注方法的统一死亡率降低百分比？如果不能，请说明缺少哪些可比证据。",
+      "reference": "",
+      "gold_ids": [
+        80,
+        82
+      ],
+      "case_id": "challenge_080_082_no_effect_size__p1"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "challenge_080_082_no_effect_size",
+      "variant": 2,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "请区分原文研究结果、研究方案与参考文献列表；没有对应证据就明确说明。问题：仅根据两篇关于急性心肌梗死治疗创新和2025年心肌血运重建临床视角的文章，是否可以计算再生医学相对于全部传统再灌注方法的统一死亡率降低百分比？如果不能，请说明缺少哪些可比证据。",
+      "reference": "",
+      "gold_ids": [
+        80,
+        82
+      ],
+      "case_id": "challenge_080_082_no_effect_size__p2"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "compare_083_084_not_comparable",
+      "variant": 1,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "请先分别确认证据来自哪些目标研究；比较时不得遗漏任一对象。问题：《Questions and Certainty in Diagnosis and Management of Acute Type B Aortic Dissection》与2025年American ACS Guideline讨论的临床疾病与证据类型是否相同？可否直接比较两者的治疗效果数值？请分别引用来源并说明不可比之处。",
+      "reference": "",
+      "gold_ids": [
+        83,
+        84
+      ],
+      "case_id": "compare_083_084_not_comparable__p1"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "compare_083_084_not_comparable",
+      "variant": 2,
+      "split": "new_papers_qa",
+      "kind": "manual_review_required",
+      "question": "请区分原文研究结果、研究方案与参考文献列表；没有对应证据就明确说明。问题：《Questions and Certainty in Diagnosis and Management of Acute Type B Aortic Dissection》与2025年American ACS Guideline讨论的临床疾病与证据类型是否相同？可否直接比较两者的治疗效果数值？请分别引用来源并说明不可比之处。",
+      "reference": "",
+      "gold_ids": [
+        83,
+        84
+      ],
+      "case_id": "compare_083_084_not_comparable__p2"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "v9_032",
+      "variant": 1,
+      "split": "dev",
+      "kind": "regular",
+      "question": "请先分别确认证据来自哪些目标研究；比较时不得遗漏任一对象。问题：研究中比较了哪些屏幕活动类型？",
+      "reference": "总屏幕时间、电视和数字媒体时间、视频游戏时间。",
+      "gold_ids": [
+        56
+      ],
+      "case_id": "v9_032__p1"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "v9_032",
+      "variant": 2,
+      "split": "dev",
+      "kind": "regular",
+      "question": "请区分原文研究结果、研究方案与参考文献列表；没有对应证据就明确说明。问题：研究中比较了哪些屏幕活动类型？",
+      "reference": "总屏幕时间、电视和数字媒体时间、视频游戏时间。",
+      "gold_ids": [
+        56
+      ],
+      "case_id": "v9_032__p2"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "v9_042",
+      "variant": 1,
+      "split": "dev",
+      "kind": "regular",
+      "question": "请先分别确认证据来自哪些目标研究；比较时不得遗漏任一对象。问题：NeuroAI and Beyond是否报告了临床随机试验的疗效估计？",
+      "reference": "没有。它属于领域前瞻与研究议程讨论，而非临床干预疗效试验。",
+      "gold_ids": [
+        64
+      ],
+      "case_id": "v9_042__p1"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "v9_042",
+      "variant": 2,
+      "split": "dev",
+      "kind": "regular",
+      "question": "请区分原文研究结果、研究方案与参考文献列表；没有对应证据就明确说明。问题：NeuroAI and Beyond是否报告了临床随机试验的疗效估计？",
+      "reference": "没有。它属于领域前瞻与研究议程讨论，而非临床干预疗效试验。",
+      "gold_ids": [
+        64
+      ],
+      "case_id": "v9_042__p2"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "v9_086",
+      "variant": 1,
+      "split": "dev",
+      "kind": "regular",
+      "question": "请先分别确认证据来自哪些目标研究；比较时不得遗漏任一对象。问题：GASH与BESS各自采用何种主要终点及评价时间？",
+      "reference": "GASH计划评价6个月mRS；BESS评价随机后至最终成功拔管的有创机械通气时长。",
+      "gold_ids": [
+        44,
+        52
+      ],
+      "case_id": "v9_086__p1"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "v9_086",
+      "variant": 2,
+      "split": "dev",
+      "kind": "regular",
+      "question": "请区分原文研究结果、研究方案与参考文献列表；没有对应证据就明确说明。问题：GASH与BESS各自采用何种主要终点及评价时间？",
+      "reference": "GASH计划评价6个月mRS；BESS评价随机后至最终成功拔管的有创机械通气时长。",
+      "gold_ids": [
+        44,
+        52
+      ],
+      "case_id": "v9_086__p2"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "v9_089",
+      "variant": 1,
+      "split": "dev",
+      "kind": "regular",
+      "question": "请先分别确认证据来自哪些目标研究；比较时不得遗漏任一对象。问题：比较Focus Pro试验与BESS在研究对象和对照处理上的区别。",
+      "reference": "前者为6–12岁ADHD儿童，比较哌甲酯+数字疗法与哌甲酯单用；后者是需有创机械通气的重症毛细支气管炎婴儿，比较气管内表面活性剂与假操作。",
+      "gold_ids": [
+        44,
+        55
+      ],
+      "case_id": "v9_089__p1"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "v9_089",
+      "variant": 2,
+      "split": "dev",
+      "kind": "regular",
+      "question": "请区分原文研究结果、研究方案与参考文献列表；没有对应证据就明确说明。问题：比较Focus Pro试验与BESS在研究对象和对照处理上的区别。",
+      "reference": "前者为6–12岁ADHD儿童，比较哌甲酯+数字疗法与哌甲酯单用；后者是需有创机械通气的重症毛细支气管炎婴儿，比较气管内表面活性剂与假操作。",
+      "gold_ids": [
+        44,
+        55
+      ],
+      "case_id": "v9_089__p2"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "v9_096",
+      "variant": 1,
+      "split": "dev",
+      "kind": "regular",
+      "question": "请先分别确认证据来自哪些目标研究；比较时不得遗漏任一对象。问题：两篇NeuroAI文献是否报告临床随机试验治疗效果？它们的共同性质是什么？",
+      "reference": "都不是临床随机疗效试验，主要是领域观点和未来研究框架讨论，不能作为药物治疗效果证据。",
+      "gold_ids": [
+        64,
+        65
+      ],
+      "case_id": "v9_096__p1"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "v9_096",
+      "variant": 2,
+      "split": "dev",
+      "kind": "regular",
+      "question": "请区分原文研究结果、研究方案与参考文献列表；没有对应证据就明确说明。问题：两篇NeuroAI文献是否报告临床随机试验治疗效果？它们的共同性质是什么？",
+      "reference": "都不是临床随机疗效试验，主要是领域观点和未来研究框架讨论，不能作为药物治疗效果证据。",
+      "gold_ids": [
+        64,
+        65
+      ],
+      "case_id": "v9_096__p2"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "v9_097",
+      "variant": 1,
+      "split": "dev",
+      "kind": "regular",
+      "question": "请先分别确认证据来自哪些目标研究；比较时不得遗漏任一对象。问题：NeuroAI and Beyond与Zador等论文对具身智能的强调有什么交集与区别？",
+      "reference": "两篇均强调神经科学与AI结合及具身能力；NeuroAI and Beyond横跨五类研究议题，Zador等突出AI动物模型的感觉运动具身图灵测试。",
+      "gold_ids": [
+        64,
+        65
+      ],
+      "case_id": "v9_097__p1"
+    },
+    {
+      "phase": "stress",
+      "parent_id": "v9_097",
+      "variant": 2,
+      "split": "dev",
+      "kind": "regular",
+      "question": "请区分原文研究结果、研究方案与参考文献列表；没有对应证据就明确说明。问题：NeuroAI and Beyond与Zador等论文对具身智能的强调有什么交集与区别？",
+      "reference": "两篇均强调神经科学与AI结合及具身能力；NeuroAI and Beyond横跨五类研究议题，Zador等突出AI动物模型的感觉运动具身图灵测试。",
+      "gold_ids": [
+        64,
+        65
+      ],
+      "case_id": "v9_097__p2"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_073",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《20250303-806755-7f352i.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        73
+      ],
+      "case_id": "catalog_073"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_075",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《2153-8174-25-12-452.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        75
+      ],
+      "case_id": "catalog_075"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_076",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《8583-Article-Text-80931-1-10-20250729.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        76
+      ],
+      "case_id": "catalog_076"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_077",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《A07250539_WEB.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        77
+      ],
+      "case_id": "catalog_077"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_078",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《ActEsp-53-3-621-631.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        78
+      ],
+      "case_id": "catalog_078"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_081",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《MedComm - 2025 - Song - Autoimmune Diseases Molecular Pathogenesis and Therapeutic Targets.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        81
+      ],
+      "case_id": "catalog_081"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_084",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《TTThe Long_Awaited American ACS Guideline_J Am Coll Cardiol_2025 .pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        84
+      ],
+      "case_id": "catalog_084"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_085",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《Update on systemic lupus erythematosus_ A review.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        85
+      ],
+      "case_id": "catalog_085"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_086",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《acs-11-01-1.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        86
+      ],
+      "case_id": "catalog_086"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_088",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《cancers-17-02099.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        88
+      ],
+      "case_id": "catalog_088"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_089",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《e003699.full.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        89
+      ],
+      "case_id": "catalog_089"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_090",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《fcvm-12-1738139.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        90
+      ],
+      "case_id": "catalog_090"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_095",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《fimmu-16-1585280.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        95
+      ],
+      "case_id": "catalog_095"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_101",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《ijms-17-01562.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        101
+      ],
+      "case_id": "catalog_101"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_103",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《immuno-05-00048-1.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        103
+      ],
+      "case_id": "catalog_103"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_104",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《jcm-15-01379.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        104
+      ],
+      "case_id": "catalog_104"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_107",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《microorganisms-13-00522.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        107
+      ],
+      "case_id": "catalog_107"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_109",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《pharmaceuticals-16-00182.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        109
+      ],
+      "case_id": "catalog_109"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_111",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《qt3nk8z0qp.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        111
+      ],
+      "case_id": "catalog_111"
+    },
+    {
+      "phase": "catalog",
+      "parent_id": "catalog_115",
+      "variant": 0,
+      "split": "catalog_audit",
+      "kind": "document_identification_only",
+      "question": "请在本地论文库中定位文件《vp5069_down.pdf》，阅读该文献的正文摘要，说明文章研究的问题、研究类型及一个有原文支持的主要发现。如未找到正文证据，明确说明，不要引用其他论文替代。",
+      "reference": "",
+      "gold_ids": [
+        115
+      ],
+      "case_id": "catalog_115"
+    }
+  ]
+}

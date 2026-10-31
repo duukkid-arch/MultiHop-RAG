@@ -1,4 +1,4 @@
-"""Minimal OpenAI-compatible /v1/chat/completions server on MUSA.
+"""Minimal local OpenAI-compatible /v1/chat/completions server on CUDA / MUSA.
 
 Does not touch the installed BGE / CrossEncoder environment or experiment results.
 Bind to 127.0.0.1 only; NO authentication is provided. Never expose publicly.
@@ -16,12 +16,22 @@ from pathlib import Path
 
 
 class ModelBackend:
-    def __init__(self, model_dir: str, max_input_tokens: int = 8192):
+    def __init__(self, model_dir: str, max_input_tokens: int = 8192, device='auto'):
         import torch
-        import torch_musa  # noqa: F401
         from transformers import AutoModelForCausalLM, AutoTokenizer
-        if not torch.musa.is_available():
-            raise RuntimeError('MUSA 不可用：请在 MTT S4000 实例上运行')
+        if device in ('auto','cuda') and torch.cuda.is_available():
+            self.device='cuda'
+        else:
+            if device not in ('auto','musa'):
+                raise RuntimeError(f'所选 GPU 不可用: {device}')
+            try:
+                import torch_musa  # noqa: F401
+                musa_available=torch.musa.is_available()
+            except (ImportError,RuntimeError,OSError):
+                musa_available=False
+            if not musa_available:
+                raise RuntimeError('CUDA/MUSA 都不可用，请检查驱动与 PyTorch 环境')
+            self.device='musa'
         p = Path(model_dir).expanduser().resolve()
         if not p.is_dir() or not (p / 'config.json').is_file():
             raise FileNotFoundError(f'本地模型未下载完整: {p}')
@@ -35,10 +45,11 @@ class ModelBackend:
             str(p), torch_dtype=torch.bfloat16, local_files_only=True,
             trust_remote_code=False, attn_implementation='eager'
         )
-        print('Moving model to MUSA...', flush=True)
-        self.model.to('musa').eval()
+        print(f'Moving model to {self.device}...', flush=True)
+        self.model.to(self.device).eval()
         self.model_name = os.getenv('LOCAL_SERVED_MODEL', 'qwen-local')
-        print('Model ready on', torch.musa.get_device_name(0), flush=True)
+        accelerator=torch.cuda if self.device=='cuda' else torch.musa
+        print('Model ready on', accelerator.get_device_name(0), flush=True)
 
     def generate(self, messages: list[dict], max_new_tokens: int = 384) -> tuple[str, int, int]:
         messages = [
@@ -54,7 +65,7 @@ class ModelBackend:
         input_tokens = int(tokens['input_ids'].shape[-1])
         if input_tokens > self.max_input_tokens:
             raise ValueError(f'提示词长度 {input_tokens} tokens 超过上限 {self.max_input_tokens}；请减少引用证据或历史轮次')
-        gpu_inputs = {k: v.to('musa') for k, v in tokens.items()}
+        gpu_inputs = {k: v.to(self.device) for k, v in tokens.items()}
         with self.lock, self.torch.inference_mode():
             generated = self.model.generate(
                 **gpu_inputs,
@@ -72,7 +83,7 @@ class ModelBackend:
 
 def make_handler(backend):
     class Handler(BaseHTTPRequestHandler):
-        server_version = 'MHRAG-Local-MUSA/0.1'
+        server_version = 'MHRAG-Local-GPU/0.2'
         def reply(self, status, payload):
             data = json.dumps(payload, ensure_ascii=False).encode('utf-8')
             self.send_response(status)
@@ -84,7 +95,7 @@ def make_handler(backend):
         def do_GET(self):
             if self.path in ('/health', '/v1/models'):
                 if self.path == '/health':
-                    return self.reply(200, {'ok': True, 'backend': 'musa', 'model': backend.model_name})
+                    return self.reply(200, {'ok': True, 'backend': getattr(backend,'device','musa'), 'model': backend.model_name})
                 return self.reply(200, {'object': 'list', 'data': [{'id': backend.model_name, 'object': 'model'}]})
             return self.reply(404, {'error': {'message': 'Not found'}})
         def do_POST(self):
@@ -126,16 +137,17 @@ def make_handler(backend):
 
 
 def main():
-    p = argparse.ArgumentParser(description='Qwen local LLM on MTT S4000 MUSA')
+    p = argparse.ArgumentParser(description='Qwen local LLM on RTX 4090 CUDA / MTT S4000 MUSA')
     p.add_argument('--model', default=os.environ.get('LOCAL_LLM_DIR',
         '/root/autodl-tmp/models/Qwen2.5-1.5B-Instruct'))
     p.add_argument('--host', default='127.0.0.1')
     p.add_argument('--port', type=int, default=8001)
     p.add_argument('--max-input-tokens', type=int, default=8192)
+    p.add_argument('--device', choices=('auto','cuda','musa'), default='auto')
     args = p.parse_args()
     if args.host not in ('127.0.0.1', 'localhost'):
         p.error('这是无认证的测试服务，只允许绑定 127.0.0.1')
-    backend = ModelBackend(args.model, args.max_input_tokens)
+    backend = ModelBackend(args.model, args.max_input_tokens, args.device)
     with ThreadingHTTPServer((args.host, args.port), make_handler(backend)) as server:
         print(f'Local LLM ready at http://{args.host}:{args.port}/v1', flush=True)
         try:

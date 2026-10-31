@@ -1,4 +1,4 @@
-"""MUSA powered interactive document RAG. No mutation of v6 experiment outputs."""
+"""CUDA/MUSA interactive document Agentic RAG; independent of v6/v7 outputs."""
 from __future__ import annotations
 import hashlib,os,sqlite3,threading,time
 from pathlib import Path
@@ -9,6 +9,20 @@ from .safe_evidence_fallback_v05 import extractive_fallback
 from .answer_guard_v03 import evidence_problem
 from .answer_guard_v04 import validate_and_repair
 from .gpu import MUSAEncoder
+from .agent import AgenticRetriever, named_comparison_terms
+
+def named_study_terms(question):
+    """Named studies found in the question; hints, NOT validated document IDs."""
+    return named_comparison_terms(question)
+
+
+def _exact_name(text, name):
+    """Whole-word-ish casefold match for acronyms and multiword study names."""
+    import re
+    text = re.sub(r'[_\W]+', ' ', str(text), flags=re.UNICODE).casefold()
+    name = re.sub(r'[_\W]+', ' ', str(name), flags=re.UNICODE).casefold().strip()
+    return bool(name and re.search(r'(?<![a-z0-9])'+re.escape(name)+r'(?![a-z0-9])', text))
+
 
 class ChatCore:
     def __init__(self,db_path=None,encoder=None):
@@ -30,7 +44,8 @@ class ChatCore:
                     'chunks':db.execute('SELECT COUNT(*) FROM chunks').fetchone()[0],
                     'gpu_loaded':self.encoder.embedder is not None if hasattr(self.encoder,'embedder') else None,
                     'reranker_loaded':self.encoder.reranker is not None if hasattr(self.encoder,'reranker') else None,
-                    'llm_configured':llm.configured(),'db':str(self.db_path)}
+                    'llm_configured':llm.configured(),
+                    'device':getattr(self.encoder,'device','musa'), 'db':str(self.db_path)}
 
     def ingest(self,filename,content):
         name=Path(str(filename).replace('\\','/')).name[:180].strip()
@@ -129,12 +144,85 @@ class ChatCore:
                'retrieval_ms':round((time.perf_counter()-ts)*1000,1)}
         return result,trace
 
-    def chat(self,question,mode='hybrid_ce',use_llm=True,plan=False,doc_ids=None,history=None):
+    def agent_tool_search(self, question, mode='hybrid_ce', doc_ids=None,
+                          limit=8, original_question=None):
+        """Read-only evidence search anchored to the ORIGINAL user question.
+
+        A named-paper scope is applied only when every recognized study can
+        be mapped to a small, unambiguous set of indexed paper headers.
+        Explicit doc_ids are NEVER expanded.  Unknown names fall back to the
+        normal retrieval procedure rather than silently dropping evidence.
+        """
+        original = str(original_question or question)
+        names = named_study_terms(original)
+        allowed = {int(x) for x in doc_ids} if doc_ids is not None else None
+        entity_scope = None
+        resolved = {}
+        if names:
+            with self.lock:
+                with store.connect(self.db_path) as db:
+                    docs = list(db.execute('SELECT id,filename FROM documents'))
+                    # PDF first pages contain article titles / abstracts.  Do
+                    # not mine References at the end: that confuses cited
+                    # trials with the article itself.
+                    heads = {}
+                    for r in db.execute('SELECT document_id,body FROM chunks '
+                                        'WHERE ordinal < 3 ORDER BY document_id,ordinal'):
+                        did = int(r['document_id'])
+                        heads[did] = (heads.get(did,'') + ' ' + str(r['body'])[:1100])[:3300]
+                    for name in names:
+                        ids = {int(d['id']) for d in docs
+                               if _exact_name(d['filename'],name) or
+                                  _exact_name(heads.get(int(d['id']),''),name)}
+                        # A term occurring in >6 papers is a topic, not a
+                        # reliably unique paper identity (e.g. NeuroAI).
+                        if 0 < len(ids) <= 6:
+                            resolved[name] = ids
+            if len(resolved) == len(names):
+                # A follow-up naming exactly one study should search only that
+                # study, not the other comparison arm.  This prevents the CE
+                # reranker from repeatedly spending the citation budget on A.
+                named_in_query = [term for term in names if _exact_name(question,term)]
+                if len(named_in_query) == 1:
+                    scope = resolved[named_in_query[0]]
+                else:
+                    scope = set().union(*resolved.values())
+                if len(scope) <= 8:
+                    entity_scope = sorted(scope if allowed is None else scope & allowed)
+        if entity_scope is not None and not entity_scope:
+            return [], {'candidate_count':0,'retrieval_ms':0,'scored_pairs':0,
+                        'entity_scope':[],'entity_names':names,
+                        'entity_document_map':{k:sorted(v) for k,v in resolved.items()},
+                        'original_query_fused':False,
+                        'reason':'用户选择的文献与研究名称限定范围不相交'}
+        effective_scope = entity_scope if entity_scope is not None else doc_ids
+        # Combine the user's complete intent with the planner's targeted
+        # follow-up: retrieval uses both; CE ranks by the actual user task.
+        if original != question:
+            found, trace = self.retrieve(original,mode,queries=[question],
+                                          doc_ids=effective_scope,limit=limit)
+        else:
+            found, trace = self.retrieve(question,mode,doc_ids=effective_scope,limit=limit)
+        trace = dict(trace)
+        trace.update({'entity_scope':entity_scope,
+                      'entity_names':names if entity_scope is not None else [],
+                      'entity_document_map':{k:sorted(v) for k,v in resolved.items()},
+                      'original_query_fused':original != question})
+        return found, trace
+
+    def chat(self,question,mode='hybrid_ce',use_llm=True,plan=False,doc_ids=None,history=None,agentic=False):
         if not isinstance(question,str) or not 1<=len(question.strip())<=2500:
             raise ValueError('问题长度应为 1–2500 个字符')
         start=time.perf_counter()
-        queries=llm.plan(question) if plan and use_llm and llm.configured() else [question]
-        sources,trace=self.retrieve(question,mode,queries[1:],doc_ids,limit=int(os.getenv('CHAT_ANSWER_SOURCES','4')))
+        if agentic:
+            if not use_llm:raise ValueError('Agentic RAG 需要开启大模型回答')
+            sources,trace=AgenticRetriever(self).run(question,mode,doc_ids,history)
+            planned=len(trace['queries'])>1
+        else:
+            queries=llm.plan(question) if plan and use_llm and llm.configured() else [question]
+            sources,trace=self.retrieve(question,mode,queries[1:],doc_ids,limit=int(os.getenv('CHAT_ANSWER_SOURCES','4')))
+            planned=len(queries)>1
+            trace['agentic']=False
         retrieval_ms=trace['retrieval_ms']
         if not sources:
             text='知识库中未找到可核查的证据。请确认 PDF 文字提取成功、选择了正确的论文，或更换检索问题。'
@@ -150,6 +238,6 @@ class ChatCore:
         else:
             text='尚未启用大模型回答。已找到以下证据，可查看来源论文和页码。'
             generated=False
-        return {'answer':text,'sources':sources,'mode':mode,'generated':generated,'trace':trace,
+        return {'answer':text,'sources':sources,'mode':mode,'generated':generated,'agentic':agentic,'trace':trace,
                 'retrieval_ms':retrieval_ms,'total_ms':round((time.perf_counter()-start)*1000,1),
-                'llm_enabled':llm.configured(),'planned':len(queries)>1}
+                'llm_enabled':llm.configured(),'planned':planned}

@@ -1,25 +1,31 @@
-.env*
-*.pdf
-*.docx
-*.sqlite*
-*.db
-*.safetensors
-*.bin
-*.pt
-*.pth
-*.gguf
-*.zip
-*.csv
-*.jsonl
-*.log
+# Machine-specific and transient files; retain models, database and experiments on purpose.
 __pycache__/
-.venv*/
-data/
-dataset/
-datasets/
-results/
-models/
-weights/
-cache/
-hf_cache/
-uploads/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+# Secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa
+id_ed25519
+.git-credentials
+credentials.json
+service-account.json
+# SQLite companion files are not a consistent database snapshot.
+*-wal
+*-shm
+# Temporary inference uploads and test scratch
+*.reassembling
