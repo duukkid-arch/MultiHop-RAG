@@ -1,0 +1,13 @@
+# Generated/downloaded data must not become part of the source repository.
+data/
+cache/
+*.parquet
+qangaroo_v*.zip
+medhop_original/
+prepared_v*/
+*_PRIVATE.jsonl
+*_context_corpus.jsonl
+*_questions_NO_GOLD.jsonl
+__pycache__/
+*.pyc
+.venv/
