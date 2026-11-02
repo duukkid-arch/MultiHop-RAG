@@ -18,37 +18,53 @@ Ordinary RAG typically retrieves evidence once and then predicts an answer. Agen
 
 The current heuristic implementation approximates steps 2–4 with deterministic TF-IDF and similarity scoring. Later experiments will replace fixed heuristics with explicit LLM-based planning and verification.
 
-<!-- AGENTIC_ARCH_START -->
+## Agentic RAG Architecture / 系统架构
 
-## System Architecture
+This diagram explains the retrieval and reasoning pipeline.
 
-The current MedHop baseline uses deterministic two-hop retrieval.
-LLM-driven planning and evidence verification are future extensions.
+本图展示 Agentic RAG 的检索、证据处理和答案生成流程。当前 MedHop 基线采用启发式多跳检索；LLM 自主规划与证据验证属于后续扩展。
 
 ```mermaid
 flowchart TD
-    A["User Question"] --> B["Question Understanding"]
-    B --> C["First-Hop Retrieval"]
-    C --> D["Bridge Evidence Selection"]
-    D --> E["Second-Hop Retrieval"]
-    E --> F["Candidate Answer Scoring"]
-    F --> G["Answer Prediction"]
-    G --> H["Evaluation and Retrieval Trace"]
+    Q["User Question"] --> U["Question Understanding"]
+    U --> R1["First-Hop Retrieval"]
+    R1 --> B["Bridge Evidence Selection"]
+    B --> R2["Second-Hop Retrieval"]
+    R2 --> S["Candidate Answer Scoring"]
+    S --> O["Answer Prediction"]
+    O --> E["Evaluation and Traces"]
 
-    E -. "Future: adaptive planning" .-> I["LLM Planner"]
-    I -. "Future: search decisions" .-> C
-    F -. "Future: verification" .-> J["Evidence Verification"]
+    R2 -.-> P["Future: LLM Planner"]
+    P -.-> R1
+    S -.-> V["Future: Evidence Verification"]
+
+    classDef process fill:#eaf2ff,stroke:#4477bb,color:#172d4f
+    classDef future fill:#fff3df,stroke:#bb8833,color:#594008
+
+    class Q,U,R1,B,R2,S,O,E process
+    class P,V future
 ```
 
-### How It Works
+### How the System Works / 运行原理
 
-1. The question and candidate answers are loaded from MedHop.
-2. First-hop retrieval selects relevant supporting passages.
-3. Bridge evidence guides a second retrieval step.
-4. Candidate answers are scored against the retrieved evidence.
-5. Predictions and retrieval traces are saved for evaluation.
+1. **Question Understanding / 问题理解**：识别问题实体和候选答案。
+2. **First-Hop Retrieval / 第一跳检索**：检索相关支持文档。
+3. **Bridge Selection / 桥接选择**：确定有助于下一跳检索的中间证据。
+4. **Second-Hop Retrieval / 第二跳检索**：利用桥接证据扩展搜索。
+5. **Answer Scoring / 答案评分**：对候选答案进行证据相关性评分。
+6. **Evaluation / 实验评估**：记录预测结果、准确率和检索轨迹。
 
-<!-- AGENTIC_ARCH_END -->
+### Implementation Status / 实现状态
+
+| Component | Status |
+| --- | --- |
+| Single-hop TF-IDF retrieval | Implemented |
+| Heuristic two-hop retrieval | Implemented |
+| MedHop validation evaluation | Implemented |
+| LLM-based autonomous planning | Planned |
+| Evidence verification for MedHop | Planned |
+
+The repository also contains modular evidence-verification experiments. These are separate from the original MedHop heuristic baseline and must be evaluated independently.
 
 ## Repository components
 
@@ -116,46 +132,3 @@ The roadmap is a **plan**, not a statement that all stages are already implement
 ## Development
 
 Use feature branches and pull requests for experimental changes. Keep new approaches comparable against the same validation split, candidate answers, and evaluation metric.
-
-<!-- AGENTIC_ARCHITECTURE_START -->
-## Agentic RAG Architecture / 椤圭洰杩愯鍘熺悊
-
-涓嬮潰灞曠ず鏈」鐩殑**姒傚康鎬ц繍琛屾祦绋?*銆傚叾涓绱€佽瘉鎹暣鍚堝拰绛旀楠岃瘉鏄綋鍓嶄唬鐮佺殑涓昏妯″潡锛汱LM 瑙勫垝鍜屽姩鎬佸伐鍏疯皟搴﹀睘浜庢寔缁畬鍠勭殑 Agentic 鑳藉姏锛?*骞堕潪鎵€鏈夊疄楠屽垎鏀兘宸插疄鐜板畬鏁磋嚜涓昏鍒?*銆?
-```mermaid
-flowchart TD
-    Q[鐢ㄦ埛闂 / Evaluation Query] --> D[闂瑙ｆ瀽涓庡瓙鐩爣鍒嗚В]
-    D --> P[妫€绱㈢瓥鐣ラ€夋嫨 / Agentic Planning]
-    P --> R[鍊欓€夋枃妗ｆ绱?/ Retrieval]
-    R --> I[鐮旂┒韬唤涓庢潵婧愯矾鐢?/ Study Routing]
-    I --> H[璇佹嵁鏀堕泦涓庣墖娈垫暣鐞?/ Evidence Harvesting]
-    H --> G[鍩轰簬璇佹嵁鐨勫€欓€?Claim 鐢熸垚]
-    G --> V{寮曟枃涓庢暟鍊奸妫€閫氳繃?}
-    V -- 鍚?--> A[寮冪瓟鎴栬褰曡瘉鎹笉瓒砞
-    V -- 鏄?--> C{闂瑕嗙洊鍙婂畨鍏ㄦ潯浠舵弧瓒?}
-    C -- 鍚?--> A
-    C -- 鏄?--> O[杈撳嚭鏈夋潵婧愮害鏉熺殑鍊欓€夌瓟妗圿
-    O --> E[瀹為獙璇勪及涓庢秷铻嶅垎鏋怾
-    A --> E
-    E --> L[璁板綍鍑嗙‘鐜囥€佽鐩栫巼銆佸純绛旂巼涓庤€楁椂]
-
-    classDef process fill:#edf4ff,stroke:#5487ce,color:#172d4f;
-    classDef gate fill:#fff6df,stroke:#be8a22,color:#594008;
-    classDef stop fill:#fff0f0,stroke:#b85a5a,color:#5c2020;
-    class D,P,R,I,H,G,O,E,L process;
-    class V,C gate;
-    class A stop;
-```
-
-**濡備綍闃呰锛?* 绯荤粺鍏堣В鏋愰棶棰樸€佹绱㈠苟鏍稿鐮旂┒鏉ユ簮锛屽啀浠庤鏂囪瘉鎹墖娈电敓鎴愬€欓€?Claim銆傚彧鏈夐€氳繃寮曟枃/鏁板€煎垵妫€涓庨棶棰樿鐩栨鏌ワ紝鍊欓€夊洖绛旀墠浼氳杈撳嚭锛涜瘉鎹笉瓒虫椂璁板綍鍘熷洜骞跺純绛斻€傝嚜鍔ㄦ鏌?*涓嶇瓑浜庡尰瀛︿笓瀹朵簨瀹炴牳楠?*銆?
-### 浠ｇ爜涓庡疄楠屽叆鍙ｏ紙鎸夊姛鑳斤級
-
-| 鍔熻兘 | 鐩稿叧妯″潡 / 鐩綍 | 浣滅敤 |
-| --- | --- | --- |
-| Agentic 宸ヤ綔娴佷笌璺敱 | `mhrag_v13/grounded_controller.py` | 缁勭粐妫€绱€佹潵婧愯矾鐢便€佺敓鎴愪笌鏈€缁堝喅绛?|
-| 澶氱粍娑堣瀺绛栫暐 | `mhrag_v13/ablation_arms.py` | 姣旇緝涓嶅悓鐢熸垚涓庡畨鍏ㄧ瓥鐣?|
-| 璇佹嵁寮曠敤鏍稿 | `mhrag_v13/e2_quote_probe.py` | 鍘熸枃閫愬瓧寮曟枃鍊欓€夋鏌?|
-| 瀛楁绾?Claim 鐢熸垚 | `mhrag_v13/e2_field8.py` | 鐢熸垚鐩爣瀛楁鐩稿叧鍊欓€?Claim |
-| 闂瑕嗙洊璇勪及 | `mhrag_v13/question_coverage.py` | 妫€鏌ュ€欓€変簨瀹炴槸鍚﹁鐩栨彁闂?|
-| MedHop 瀹為獙锛堣嫢宸查儴缃诧級 | `medhop_agentic/` | 鍗曡烦/鍙岃烦涓?BM25 鐩稿叧瀹為獙鍏ュ彛 |
-
-> **鐮旂┒鐘舵€佽鏄庯細** 褰撳墠椤圭洰鍖呭惈鍚彂寮忓璺虫绱㈠熀绾垮強 Agentic/璇佹嵁楠岃瘉瀹為獙浠ｇ爜銆傚浘涓殑鈥淎gentic Planning鈥濅唬琛ㄧ洰鏍囪兘鍔涙垨閮ㄥ垎绛栫暐锛屼笉搴旂悊瑙ｄ负鎵€鏈夊疄楠岄兘宸茬粡鍏峰缁忚繃楠岃瘉鐨?LLM 鑷富宸ュ叿璋冪敤銆侻edHop 鍑嗙‘鐜囦笌鍖诲鏂囩尞 Claim 楠岃瘉鐜囧睘浜庝笉鍚岃瘎娴嬶紝涓嶅簲娣蜂负涓€璋堛€?<!-- AGENTIC_ARCHITECTURE_END -->
