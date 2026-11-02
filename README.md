@@ -1,134 +1,130 @@
 # MultiHop-RAG: Agentic Multi-Hop Retrieval and Reasoning
 
-**An experimental framework for Agentic Retrieval-Augmented Generation (Agentic RAG), multi-hop evidence retrieval, and reproducible reasoning benchmarks.**
+**An experimental research repository for multi-hop retrieval, evidence-grounded reasoning, and reproducible Agentic RAG evaluation.**
 
-This repository investigates how retrieval agents can **plan searches, follow evidence across documents, verify answers, and evaluate reasoning trajectories**. The immediate focus is the original **MedHop** benchmark, where a model must select the correct answer from candidates using supporting passages.
+MultiHop-RAG explores how retrieval systems move beyond a single search to follow evidence across documents, assess candidate answers, and record auditable reasoning traces. It includes an **original MedHop benchmark baseline** alongside a **separate modular evidence-grounding research pipeline**.
 
-> **Current implementation status:** The included MedHop `agentic` mode is a **heuristic two-hop retrieval baseline**, not yet an LLM-directed autonomous agent. LLM planning, tool selection, and evidence verification are planned extensions. Benchmark scores are reported only after experiments have been run.
+> **Research status:** The MedHop `agentic` mode evaluated below is a **deterministic, heuristic two-hop baseline**, **not** an autonomous LLM agent. A modular claim-generation and evidence-verification pipeline also exists in this repository, but its metrics are **not interchangeable** with MedHop answer-selection accuracy. Features marked *Planned* below are not claimed as completed.
+
+## At a glance
+
+| Area | What it does | Status |
+| --- | --- | --- |
+| MedHop single-hop | TF-IDF retrieval and candidate-answer scoring | Implemented; evaluated |
+| MedHop heuristic two-hop | Bridge-passage expansion and candidate-answer scoring | Implemented; evaluated |
+| BM25 / additional retrieval strategies | Retrieval ablations | Experimental; check branch for code and results |
+| Modular evidence-grounding | Study routing, evidence harvesting, claim checks, abstention | Separate experimental pipeline |
+| LLM-controlled retrieval planner for MedHop | Dynamically selects retrieval actions and stopping conditions | Planned |
+| MedHop evidence-chain verification | Verifies whether answer chains support a chosen candidate | Planned |
 
 ## Why Agentic RAG?
 
-Ordinary RAG typically retrieves evidence once and then predicts an answer. Agentic RAG aims to adapt the retrieval process to the evidence already seen:
+Single-pass RAG retrieves evidence once. Agentic RAG research asks whether a system can **decompose the question**, **decide what to retrieve next**, **connect evidence across hops**, **check support**, and **stop or abstain** when evidence is insufficient. The measured MedHop baseline below implements fixed two-hop behavior; it does not yet make autonomous tool-use decisions.
 
-1. **Understand the task** and identify entities and candidate answers.
-2. **Retrieve first-hop evidence** relevant to the original question.
-3. **Follow a bridge** by selecting intermediate passages or entities.
-4. **Retrieve additional evidence** to connect the starting entity to a candidate answer.
-5. **Verify and answer** using the evidence path; record the retrieval trace for inspection.
+## System architecture
 
-The current heuristic implementation approximates steps 2–4 with deterministic TF-IDF and similarity scoring. Later experiments will replace fixed heuristics with explicit LLM-based planning and verification.
-
-## Agentic RAG Architecture / 系统架构
-
-This diagram explains the retrieval and reasoning pipeline.
-
-本图展示 Agentic RAG 的检索、证据处理和答案生成流程。当前 MedHop 基线采用启发式多跳检索；LLM 自主规划与证据验证属于后续扩展。
+The **solid arrows** show the currently implemented *MedHop heuristic baseline*. **Dashed arrows** denote planned MedHop agent extensions.
 
 ```mermaid
 flowchart TD
-    Q["User Question"] --> U["Question Understanding"]
-    U --> R1["First-Hop Retrieval"]
-    R1 --> B["Bridge Evidence Selection"]
-    B --> R2["Second-Hop Retrieval"]
-    R2 --> S["Candidate Answer Scoring"]
-    S --> O["Answer Prediction"]
-    O --> E["Evaluation and Traces"]
-
-    R2 -.-> P["Future: LLM Planner"]
-    P -.-> R1
-    S -.-> V["Future: Evidence Verification"]
-
-    classDef process fill:#eaf2ff,stroke:#4477bb,color:#172d4f
+    Q["Question + Candidate Answers"] --> S["TF-IDF First-Hop Retrieval"]
+    S --> B["Bridge Evidence Selection"]
+    B --> H["Second-Hop Retrieval"]
+    H --> C["Candidate Answer Scoring"]
+    C --> A["Predicted Candidate"]
+    A --> E["Accuracy Evaluation + Retrieval Traces"]
+    H -. "Planned" .-> P["LLM Planner + Adaptive Search"]
+    P -. "Planned" .-> S
+    C -. "Planned" .-> V["Evidence-Chain Verification"]
+    classDef core fill:#eaf2ff,stroke:#4477bb,color:#172d4f
     classDef future fill:#fff3df,stroke:#bb8833,color:#594008
-
-    class Q,U,R1,B,R2,S,O,E process
+    class Q,S,B,H,C,A,E core
     class P,V future
 ```
 
-### How the System Works / 运行原理
+**运行原理：** 输入问题与候选答案 → 第一跳检索 → 桥接证据选择 → 第二跳检索 → 候选答案打分 → 保存预测、准确率和检索轨迹。上图中的 LLM Planner 与 MedHop 证据链验证是后续研究方向，并非当前双跳基线的已实现能力。
 
-1. **Question Understanding / 问题理解**：识别问题实体和候选答案。
-2. **First-Hop Retrieval / 第一跳检索**：检索相关支持文档。
-3. **Bridge Selection / 桥接选择**：确定有助于下一跳检索的中间证据。
-4. **Second-Hop Retrieval / 第二跳检索**：利用桥接证据扩展搜索。
-5. **Answer Scoring / 答案评分**：对候选答案进行证据相关性评分。
-6. **Evaluation / 实验评估**：记录预测结果、准确率和检索轨迹。
+The repository's **modular medical-literature evidence pipeline** separately includes study identity routing, evidence harvesting, claim generation, quote/number prechecks, coverage checks, and abstention decisions. Its automated checks **do not constitute clinical fact verification**, and its F/G or E2/E3 ablation metrics should not be reported as MedHop accuracy.
 
-### Implementation Status / 实现状态
+## Measured MedHop results
 
-| Component | Status |
-| --- | --- |
-| Single-hop TF-IDF retrieval | Implemented |
-| Heuristic two-hop retrieval | Implemented |
-| MedHop validation evaluation | Implemented |
-| LLM-based autonomous planning | Planned |
-| Evidence verification for MedHop | Planned |
+**Dataset:** original MedHop, validation split, **342 examples**. Each example's provided `supports` passages are the retrieval pool; the model chooses among that example's `candidates`. Gold `answer` labels are used only for evaluation.
 
-The repository also contains modular evidence-verification experiments. These are separate from the original MedHop heuristic baseline and must be evaluated independently.
+| Configuration | Evaluated | Correct | Exact-match accuracy | Evaluation time* |
+| --- | ---: | ---: | ---: | ---: |
+| TF-IDF single-hop (`single`) | 342 / 342 | 35 | **10.23%** | 6.44 s |
+| TF-IDF heuristic two-hop (`agentic`) | 342 / 342 | 39 | **11.40%** | 9.22 s |
+| Difference (two-hop minus single-hop) | — | +4 | **+1.17 percentage points** | +2.78 s |
 
-## Repository components
+*Times are the per-mode script-reported evaluation durations from one AutoDL run, not controlled latency benchmarks. The overall shell run took **21.916 s** including overhead. Values are rounded; 35/342 and 39/342 reconstruct the reported accuracies.*
 
-| Component | Purpose | Status |
-| --- | --- | --- |
-| `mhrag_v13_modular_starter/` | Existing modular retrieval and benchmark infrastructure | Existing project code; see its own documentation |
-| `mhrag_v13_modular_starter/benchmarks/medhop/` | MedHop benchmark integration and offline checks | Existing project code |
-| `medhop_agentic/medhop_pipeline.py` | Per-question retrieval and candidate-answer scoring | Implemented baseline |
-| `medhop_agentic/run_full_experiment.sh` | Full validation comparison of two retrieval modes | Implemented script |
-| `medhop_agentic/README.md` | Detailed dataset assumptions, commands, and limitations | Documentation |
+**Interpretation:** Two-hop scoring answered four more validation questions correctly in this run. This small gain is **not a claim of statistical significance**, generalization, or autonomous-agent effectiveness. No LLM-agent accuracy is reported. The raw run reported `OMP_NUM_THREADS` warnings; these did not prevent evaluation. The measured results were shared as terminal logs; per-example JSONL outputs are generated locally and should be archived with the exact commit and settings for independent replication.
 
-Directory names above describe the intended integrated repository layout; check your branch for the available files.
+## Repository layout
 
-## MedHop experiment
-
-**Task.** Given `query`, `supports`, and `candidates`, predict a candidate answer; use the gold `answer` field for evaluation only. Support passages are retrieved **within each question's provided documents**, not from a shared global corpus.
-
-**Baseline A — Single-hop retrieval (`single`)**  
-Uses TF-IDF relevance to retrieve supporting passages and rank candidate answers.
-
-**Baseline B — Heuristic two-hop retrieval (`agentic`)**  
-Uses first-hop evidence to identify bridge passages, expands retrieval based on similar documents, and scores candidate answers with evidence from multiple passages. This is an *agentic-style retrieval baseline*; it does not autonomously call an LLM or choose its own tools.
-
-### Run full validation on AutoDL
-
-The following commands assume the `medhop_agentic/` directory has been added to this repository and the MedHop dataset is available locally.
-
-```bash
-cd medhop_agentic
-python -m pip install -r requirements.txt
-bash run_full_experiment.sh /root/autodl-tmp/medhop_benchmark_private/medhop_original
+```text
+MultiHop-RAG/
+├── README.md
+├── medhop_agentic/
+│   ├── medhop_pipeline.py          # Single-hop / heuristic two-hop baselines
+│   ├── run_full_experiment.sh      # Full validation run
+│   ├── requirements.txt
+│   └── README.md                   # Dataset and implementation notes
+├── mhrag_v13_modular_starter/
+│   ├── mhrag_v13/                  # Modular grounded-reasoning components
+│   └── benchmarks/                # Separate benchmarks and tests
+├── benchmarks/                    # Additional repository benchmarks
+└── .github/workflows/             # Automated checks
 ```
 
-By default, the script evaluates the entire MedHop **validation** split in both modes. The previously prepared local dataset was reported as **1,620 training** and **342 validation** examples; these counts are environment-specific and are not reverified by this README.
+*This is a guide to key entry points, not an exhaustive listing of every file or legacy directory. Refer to the selected branch for actual contents.*
 
-### Outputs
+## Reproduce the MedHop baseline
+
+Requirements: Python environment with packages from `medhop_agentic/requirements.txt`; a **locally available** original MedHop dataset. Do not commit the private dataset to GitHub. The run script must be configured to locate your local dataset; inspect `medhop_pipeline.py --help` and the shell script for dataset-path options before running on a different machine.
+
+```bash
+# From the repository root
+cd medhop_agentic
+python -m pip install -r requirements.txt
+export OMP_NUM_THREADS=1
+bash run_full_experiment.sh
+```
+
+The reported AutoDL setup used the dataset directory:
+
+```text
+/root/autodl-tmp/medhop_benchmark_private/medhop_original
+```
+
+Expected output files (the script creates these on a successful run):
 
 ```text
 medhop_agentic/results/
-  single_validation.jsonl
-  single_validation_metrics.json
-  agentic_validation.jsonl
-  agentic_validation_metrics.json
+├── single_validation.jsonl
+├── single_validation_metrics.json
+├── agentic_validation.jsonl
+└── agentic_validation_metrics.json
 ```
 
-Each prediction record contains an answer, gold label (when present), and retrieval trace. Metric JSON files contain scored count, exact-match accuracy when labels exist, and elapsed time. **No measured accuracy is claimed in advance.**
+The baseline was reported to use **1,620 train** and **342 validation** records in the local prepared dataset. For scientific reporting, preserve the exact code commit, dataset revision, configuration, raw predictions, and environment in an experiment record. Do not infer a statistical confidence interval from rounded aggregate metrics alone.
 
-## Agentic research roadmap
+## Research roadmap
 
-- **Stage 1 — Reproducible baselines:** single-hop versus deterministic two-hop retrieval; inspect failures and retrieval traces.
-- **Stage 2 — Retrieval upgrades:** BM25 and dense retrieval under consistent candidate sets and support-document conditions.
-- **Stage 3 — LLM agent:** planner decides whether to retrieve again, selects search actions, and terminates when evidence is sufficient.
-- **Stage 4 — Evidence verification:** assess support-chain consistency and reject unsupported answers.
-- **Stage 5 — Ablations and reporting:** compare accuracy, latency, retrieval steps, evidence coverage, and compute cost.
+1. **Established baseline:** TF-IDF single-hop versus heuristic two-hop on original MedHop.
+2. **Retrieval ablations:** Compare BM25, dense or hybrid retrieval under identical data and candidate-answer conditions.
+3. **Agent control:** Add LLM planning, adaptive follow-up retrieval, and explicit stopping decisions to MedHop.
+4. **Evidence-chain verification:** Evaluate whether the retrieved chain actually supports the answer; distinguish unsupported answers from abstentions.
+5. **Reproducible reporting:** Compare accuracy, coverage, latency, retrieval steps, and compute cost; publish ablations and error analysis with run metadata.
 
-The roadmap is a **plan**, not a statement that all stages are already implemented.
+## Responsible evaluation
 
-## Reproducibility and responsible data handling
-
-- Run evaluation on held-out validation examples and do not use the gold answer for prediction.
-- Preserve retrieval traces and experiment configuration for ablation studies.
-- Do not commit private datasets, access tokens, model checkpoints, or large output artifacts.
-- Consult the MedHop dataset's own terms and citation guidance before redistribution or publication.
+- Keep gold answers out of the prediction path; use them only to score held-out examples.
+- Separate **MedHop multiple-choice accuracy** from **medical-literature claim-verification / abstention** experiments.
+- Automated quote and numeric checks are preliminary provenance checks, **not medical-expert review**.
+- Do not upload access tokens, private data, model checkpoints, or large generated artifacts.
+- Verify dataset license and citation requirements before redistributing data or publishing results.
 
 ## Development
 
-Use feature branches and pull requests for experimental changes. Keep new approaches comparable against the same validation split, candidate answers, and evaluation metric.
+Use feature branches and pull requests; preserve the historical baseline when changing retrieval, planning, or verification. Keep configurations and metrics traceable to a Git commit so improvements can be independently reproduced.
