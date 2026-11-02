@@ -1,0 +1,103 @@
+{
+  "dataset_kind": "historical_dev_24_unseen_by_DEV8_not_holdout",
+  "source_sha256": "b96cc978b4e191e27887d585e51e6c83dc6f7d25df12e7c3b751abcbae496404",
+  "selection": "deterministic_stratified_round_robin_v2_no_gold",
+  "cases": [
+    {
+      "case_id": "abstain_005",
+      "question": "养育干预荟萃分析是否证明所有干预必然减少家长抑郁症状？"
+    },
+    {
+      "case_id": "v9_091",
+      "question": "比较Focus Pro试验的客观注意力结果与早期养育干预综述的认知发展结果。"
+    },
+    {
+      "case_id": "v9_086",
+      "question": "GASH与BESS各自采用何种主要终点及评价时间？"
+    },
+    {
+      "case_id": "v9_007",
+      "question": "BESS试验作者对该给药方案的临床使用作何结论？"
+    },
+    {
+      "case_id": "abstain_011",
+      "question": "Heads Up是否证明乌帕替尼完全不存在严重感染风险？"
+    },
+    {
+      "case_id": "new_116_neurobiology",
+      "question": "根据《What Is the Neurobiology of Schizophrenia?》概括文献讨论的精神分裂症神经生物学机制和所引用的证据类型。请不要仅凭机制综述宣称某药物已被临床试验证明有效。"
+    },
+    {
+      "case_id": "v9_088",
+      "question": "ADHD Focus Pro与BESS研究客观主要结局的方向分别如何？"
+    },
+    {
+      "case_id": "v9_087",
+      "question": "比较GASH格列本脲与BESS表面活性剂的给药方式和疗程安排。"
+    },
+    {
+      "case_id": "abstain_009",
+      "question": "CUPID-C能否证明度普利尤单抗对所有荨麻疹患者都有效？"
+    },
+    {
+      "case_id": "new_104_jcm_identify",
+      "question": "请找到名为 jcm-15-01379.pdf 的论文，先识别它实际研究的疾病或问题、研究设计以及主要结论；如果当前片段无法判断，请明确指出缺失信息并引用论文。"
+    },
+    {
+      "case_id": "v9_012",
+      "question": "GASH主要结局在何时衡量，用什么尺度？"
+    },
+    {
+      "case_id": "abstain_012",
+      "question": "在没有患者病史信息的情况下，可否基于这些论文为某位具体患者确定治疗剂量？"
+    },
+    {
+      "case_id": "abstain_004",
+      "question": "加拿大儿童屏幕时间队列是否能证明增加屏幕时长必然导致每名儿童数学能力下降？"
+    },
+    {
+      "case_id": "v9_089",
+      "question": "比较Focus Pro试验与BESS在研究对象和对照处理上的区别。"
+    },
+    {
+      "case_id": "new_099_fpsyt_identify",
+      "question": "文件 fpsyt-16-1564004.pdf 是研究什么主题的？请提取其研究类型、研究对象和主要结果，并区分作者结论与统计数据。"
+    },
+    {
+      "case_id": "v9_020",
+      "question": "该荟萃分析对家长抑郁症状的结论是否显著？"
+    },
+    {
+      "case_id": "new_085_sle_review",
+      "question": "请根据文献《Update on systemic lupus erythematosus: A review》说明它属于哪类研究，讨论了哪些疾病机制与治疗方向？请明确区分已得到支持的结论和作者的研究展望，并给出引文。"
+    },
+    {
+      "case_id": "new_084_acs_guideline",
+      "question": "请定位文件《TTThe Long_Awaited American ACS Guideline_J Am Coll Cardiol_2025 .pdf》，说明其文章类型以及主要讨论的ACS临床指导原则，并指出是否是一项独立开展的随机疗效试验。"
+    },
+    {
+      "case_id": "v9_004",
+      "question": "BESS试验随机分配了多少名婴儿，两组各多少？"
+    },
+    {
+      "case_id": "v9_046",
+      "question": "作者为何认为语言和游戏测试不足以覆盖具身智能？"
+    },
+    {
+      "case_id": "v9_002",
+      "question": "BESS研究的对照操作和分配方式是什么？"
+    },
+    {
+      "case_id": "v9_029",
+      "question": "加拿大儿童屏幕时间与学业成绩研究采用了什么设计？"
+    },
+    {
+      "case_id": "new_080_ami_innovation",
+      "question": "根据《Innovations in the Treatment of Acute Myocardial Infarction in the Era of Precision and Intelligence》介绍文章所讨论的急性心肌梗死治疗技术方向；哪些是已开展的治疗，哪些是未来研究方向？"
+    },
+    {
+      "case_id": "abstain_006",
+      "question": "Zador等NeuroAI观点是否报告了动物具身图灵测试的临床疗效数据？"
+    }
+  ]
+}

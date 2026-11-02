@@ -1,0 +1,14 @@
+{
+  "dataset_kind": "historical_dev_8_prompt_diagnostic_no_gold",
+  "description": "Six historical answer-seeking questions and two evidence-limits; no gold answers or document IDs.",
+  "cases": [
+    {"case_id":"v9_003","question":"BESS所用poractant alfa的首次剂量和后续给药方案是什么？","case_type":"answer_seeking_dev"},
+    {"case_id":"v9_005","question":"在BESS试验中主要终点是什么？","case_type":"answer_seeking_dev"},
+    {"case_id":"v9_009","question":"GASH拟纳入患者的年龄与发病时间要求是什么？","case_type":"answer_seeking_dev"},
+    {"case_id":"v9_011","question":"GASH格列本脲给药剂量和疗程如何设置？","case_type":"answer_seeking_dev"},
+    {"case_id":"v9_026","question":"Focus Pro试验的客观神经认知评价采用什么测试？","case_type":"answer_seeking_dev"},
+    {"case_id":"v9_027","question":"第8周Focus Pro联合组TOVA注意比较评分差异和效应量是多少？","case_type":"answer_seeking_dev"},
+    {"case_id":"abstain_002","question":"BESS研究是否证明给每位重症毛细支气管炎患儿使用poractant alfa必然有益？","case_type":"evidence_limit_dev"},
+    {"case_id":"abstain_003","question":"Focus Pro研究有没有证明数字疗法可以让所有ADHD儿童停止药物？","case_type":"evidence_limit_dev"}
+  ]
+}

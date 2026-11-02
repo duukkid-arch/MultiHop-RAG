@@ -1,0 +1,87 @@
+{
+  "dataset_kind": "historical_dev_16_regression_no_gold",
+  "source": "historical_dev91_questions_NO_GOLD.json (selection via question type only)",
+  "selection": "12 answer-seeking and 4 safe-abstain challenge queries; no answer/key in dataset",
+  "cases": [
+    {
+      "case_id": "v9_003",
+      "question": "BESS所用poractant alfa的首次剂量和后续给药方案是什么？",
+      "case_type": "answer_seeking_dev"
+    },
+    {
+      "case_id": "v9_005",
+      "question": "在BESS试验中主要终点是什么？",
+      "case_type": "answer_seeking_dev"
+    },
+    {
+      "case_id": "v9_006",
+      "question": "BESS两组机械通气时长中位数分别是多少，差异显著吗？",
+      "case_type": "answer_seeking_dev"
+    },
+    {
+      "case_id": "v9_009",
+      "question": "GASH拟纳入患者的年龄与发病时间要求是什么？",
+      "case_type": "answer_seeking_dev"
+    },
+    {
+      "case_id": "v9_011",
+      "question": "GASH格列本脲给药剂量和疗程如何设置？",
+      "case_type": "answer_seeking_dev"
+    },
+    {
+      "case_id": "v9_016",
+      "question": "这篇养育干预综述共纳入多少文章和独立随机试验？",
+      "case_type": "answer_seeking_dev"
+    },
+    {
+      "case_id": "v9_017",
+      "question": "养育干预在儿童认知发展方面的合并效应量及置信区间是多少？",
+      "case_type": "answer_seeking_dev"
+    },
+    {
+      "case_id": "v9_026",
+      "question": "Focus Pro试验的客观神经认知评价采用什么测试？",
+      "case_type": "answer_seeking_dev"
+    },
+    {
+      "case_id": "v9_027",
+      "question": "第8周Focus Pro联合组TOVA注意比较评分差异和效应量是多少？",
+      "case_type": "answer_seeking_dev"
+    },
+    {
+      "case_id": "v9_031",
+      "question": "研究中总屏幕时间每增加1小时，六年级数学较高成绩的OR是多少？",
+      "case_type": "answer_seeking_dev"
+    },
+    {
+      "case_id": "v9_036",
+      "question": "NeuroAI and Beyond基于何时举办的活动形成讨论？",
+      "case_type": "answer_seeking_dev"
+    },
+    {
+      "case_id": "compare_083_084_not_comparable",
+      "question": "《Questions and Certainty in Diagnosis and Management of Acute Type B Aortic Dissection》与2025年American ACS Guideline讨论的临床疾病与证据类型是否相同？可否直接比较两者的治疗效果数值？请分别引用来源并说明不可比之处。",
+      "case_type": "answer_seeking_dev"
+    },
+    {
+      "case_id": "abstain_001",
+      "question": "GASH试验已经证实格列本脲降低6个月死亡率多少百分比？",
+      "case_type": "evidence_limit_dev"
+    },
+    {
+      "case_id": "abstain_002",
+      "question": "BESS研究是否证明给每位重症毛细支气管炎患儿使用poractant alfa必然有益？",
+      "case_type": "evidence_limit_dev"
+    },
+    {
+      "case_id": "abstain_003",
+      "question": "Focus Pro研究有没有证明数字疗法可以让所有ADHD儿童停止药物？",
+      "case_type": "evidence_limit_dev"
+    },
+    {
+      "case_id": "challenge_080_082_no_effect_size",
+      "question": "仅根据两篇关于急性心肌梗死治疗创新和2025年心肌血运重建临床视角的文章，是否可以计算再生医学相对于全部传统再灌注方法的统一死亡率降低百分比？如果不能，请说明缺少哪些可比证据。",
+      "case_type": "evidence_limit_dev"
+    }
+  ]
+}

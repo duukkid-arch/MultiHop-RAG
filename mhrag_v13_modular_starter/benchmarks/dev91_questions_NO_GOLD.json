@@ -1,0 +1,461 @@
+{
+  "dataset_kind": "historical_dev_91_no_gold",
+  "source": "historical_v12.1_baseline_91_user_uploaded_questions_labels_stripped",
+  "cases": [
+    {
+      "case_id": "abstain_001",
+      "question": "GASH试验已经证实格列本脲降低6个月死亡率多少百分比？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "abstain_002",
+      "question": "BESS研究是否证明给每位重症毛细支气管炎患儿使用poractant alfa必然有益？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "abstain_003",
+      "question": "Focus Pro研究有没有证明数字疗法可以让所有ADHD儿童停止药物？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "abstain_004",
+      "question": "加拿大儿童屏幕时间队列是否能证明增加屏幕时长必然导致每名儿童数学能力下降？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "abstain_005",
+      "question": "养育干预荟萃分析是否证明所有干预必然减少家长抑郁症状？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "abstain_006",
+      "question": "Zador等NeuroAI观点是否报告了动物具身图灵测试的临床疗效数据？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "abstain_007",
+      "question": "果蝇LIF全脑模型是否已直接证明人类精神疾病可据此治疗？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "abstain_008",
+      "question": "Cox的23人ICI队列能否证明该治疗已获批准用于健康人皮肤癌预防？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "abstain_009",
+      "question": "CUPID-C能否证明度普利尤单抗对所有荨麻疹患者都有效？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "abstain_010",
+      "question": "BE RADIANT是否是连续3年没有换药的双盲随机平行对照试验？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "abstain_011",
+      "question": "Heads Up是否证明乌帕替尼完全不存在严重感染风险？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "abstain_012",
+      "question": "在没有患者病史信息的情况下，可否基于这些论文为某位具体患者确定治疗剂量？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "challenge_080_082_no_effect_size",
+      "question": "仅根据两篇关于急性心肌梗死治疗创新和2025年心肌血运重建临床视角的文章，是否可以计算再生医学相对于全部传统再灌注方法的统一死亡率降低百分比？如果不能，请说明缺少哪些可比证据。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "challenge_116_no_universal_cure",
+      "question": "仅依据《What Is the Neurobiology of Schizophrenia?》这篇文献，是否能断言一种药物在随机试验中治愈了所有精神分裂症患者？请严格区分机制假说、临床试验证据与没有证据的断言。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "compare_080_082_ami",
+      "question": "比较《Innovations in the Treatment of Acute Myocardial Infarction in the Era of Precision and Intelligence》和《Myocardial Revascularization in 2025: A Clinical Perspective》：两篇文章的研究类型、治疗主题和对未来技术的讨论有哪些异同？请分别引用两篇原文。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "compare_081_085_autoimmune",
+      "question": "比较《Autoimmune Diseases: Molecular Pathogenesis and Therapeutic Targets》和《Update on systemic lupus erythematosus: A review》：两篇文章覆盖的疾病范围、免疫机制与治疗证据有何不同？分别给出证据，勿把综述混同为随机疗效试验。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "compare_083_084_not_comparable",
+      "question": "《Questions and Certainty in Diagnosis and Management of Acute Type B Aortic Dissection》与2025年American ACS Guideline讨论的临床疾病与证据类型是否相同？可否直接比较两者的治疗效果数值？请分别引用来源并说明不可比之处。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "compare_098_099_psychiatry",
+      "question": "请分别识别 fpsyt-16-1552992.pdf 与 fpsyt-16-1564004.pdf 的研究主题、研究设计和主要结论；如果两篇研究人群或干预不同，说明为何不能直接合并疗效结论。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "new_080_ami_innovation",
+      "question": "根据《Innovations in the Treatment of Acute Myocardial Infarction in the Era of Precision and Intelligence》介绍文章所讨论的急性心肌梗死治疗技术方向；哪些是已开展的治疗，哪些是未来研究方向？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "new_081_autoimmune",
+      "question": "在《Autoimmune Diseases: Molecular Pathogenesis and Therapeutic Targets》这篇文献中，作者讨论了哪些自身免疫病机制和治疗靶点？文章是随机疗效试验还是综述性工作？请引用原文。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "new_082_revascularization",
+      "question": "文献《Myocardial Revascularization in 2025: A Clinical Perspective》主要比较或讨论了哪些心肌血运重建策略？请说明文献性质、主要论点及证据局限，不要把观点写成随机试验结果。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "new_083_aortic_dissection",
+      "question": "在《Questions and Certainty in Diagnosis and Management of Acute Type B Aortic Dissection》中，作者认为急性B型主动脉夹层的诊断或管理有哪些关键问题和证据不确定性？请提供来源页码。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "new_084_acs_guideline",
+      "question": "请定位文件《TTThe Long_Awaited American ACS Guideline_J Am Coll Cardiol_2025 .pdf》，说明其文章类型以及主要讨论的ACS临床指导原则，并指出是否是一项独立开展的随机疗效试验。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "new_085_sle_review",
+      "question": "请根据文献《Update on systemic lupus erythematosus: A review》说明它属于哪类研究，讨论了哪些疾病机制与治疗方向？请明确区分已得到支持的结论和作者的研究展望，并给出引文。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "new_099_fpsyt_identify",
+      "question": "文件 fpsyt-16-1564004.pdf 是研究什么主题的？请提取其研究类型、研究对象和主要结果，并区分作者结论与统计数据。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "new_104_jcm_identify",
+      "question": "请找到名为 jcm-15-01379.pdf 的论文，先识别它实际研究的疾病或问题、研究设计以及主要结论；如果当前片段无法判断，请明确指出缺失信息并引用论文。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "new_110_preprint_status",
+      "question": "请定位 preprints202511.0971.v1.pdf，说明其研究主题和文献性质。文献为预印本这一状态是否意味着其中的研究结论已获独立验证？请仅基于文献说明，不要推测。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "new_116_neurobiology",
+      "question": "根据《What Is the Neurobiology of Schizophrenia?》概括文献讨论的精神分裂症神经生物学机制和所引用的证据类型。请不要仅凭机制综述宣称某药物已被临床试验证明有效。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_001",
+      "question": "BESS试验针对什么患者群体、开展在哪些场所？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_002",
+      "question": "BESS研究的对照操作和分配方式是什么？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_003",
+      "question": "BESS所用poractant alfa的首次剂量和后续给药方案是什么？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_004",
+      "question": "BESS试验随机分配了多少名婴儿，两组各多少？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_005",
+      "question": "在BESS试验中主要终点是什么？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_006",
+      "question": "BESS两组机械通气时长中位数分别是多少，差异显著吗？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_007",
+      "question": "BESS试验作者对该给药方案的临床使用作何结论？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_008",
+      "question": "GASH方案研究的疾病和候选治疗药物是什么？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_009",
+      "question": "GASH拟纳入患者的年龄与发病时间要求是什么？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_010",
+      "question": "GASH预期招募多少例，采用什么分组方式？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_011",
+      "question": "GASH格列本脲给药剂量和疗程如何设置？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_012",
+      "question": "GASH主要结局在何时衡量，用什么尺度？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_013",
+      "question": "GASH试验方案拟评估哪些次要结局？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_014",
+      "question": "GASH是已完成随机试验的疗效报告吗？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_015",
+      "question": "早期养育干预荟萃分析聚焦儿童出生后哪个年龄阶段？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_016",
+      "question": "这篇养育干预综述共纳入多少文章和独立随机试验？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_017",
+      "question": "养育干预在儿童认知发展方面的合并效应量及置信区间是多少？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_018",
+      "question": "养育干预对儿童语言发展的平均效果如何？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_019",
+      "question": "养育干预对儿童行为问题的效果方向和大小是什么？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_020",
+      "question": "该荟萃分析对家长抑郁症状的结论是否显著？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_021",
+      "question": "含反应性养育的干预，在这篇荟萃分析中呈现了怎样的效果差异？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_022",
+      "question": "Focus Pro联用哌甲酯研究的研究类型、研究对象是什么？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_023",
+      "question": "Focus Pro联合哌甲酯试验两组人数及干预持续时间？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_024",
+      "question": "Focus Pro每天使用多久，训练重点是什么？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_025",
+      "question": "该ADHD随机试验第12周为何时间节点？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_026",
+      "question": "Focus Pro试验的客观神经认知评价采用什么测试？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_027",
+      "question": "第8周Focus Pro联合组TOVA注意比较评分差异和效应量是多少？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_028",
+      "question": "Focus Pro研究中主观量表与客观神经认知测量是否显示同样的组间差异？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_029",
+      "question": "加拿大儿童屏幕时间与学业成绩研究采用了什么设计？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_030",
+      "question": "该屏幕时间研究两组年级对应多少儿童？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_031",
+      "question": "研究中总屏幕时间每增加1小时，六年级数学较高成绩的OR是多少？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_032",
+      "question": "研究中比较了哪些屏幕活动类型？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_033",
+      "question": "该研究三年级阅读与数学的额外1小时总屏幕时间OR分别多少？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_034",
+      "question": "是否能根据该前瞻性队列直接断言屏幕时间导致成绩下降？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_035",
+      "question": "加拿大研究关注的主要学业结局包括哪几个学科和年级？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_036",
+      "question": "NeuroAI and Beyond基于何时举办的活动形成讨论？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_037",
+      "question": "NeuroAI and Beyond提出哪五个核心方向？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_038",
+      "question": "NeuroAI and Beyond怎样概括神经科学与AI的当前关系？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_039",
+      "question": "该论文如何定义其倡导的NeuroAI？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_040",
+      "question": "NeuroAI and Beyond是否仅聚焦语言模型训练？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_041",
+      "question": "这篇NeuroAI综述附录中使用了什么战略性分析框架？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_042",
+      "question": "NeuroAI and Beyond是否报告了临床随机试验的疗效估计？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_043",
+      "question": "Zador等论文提出的NeuroAI核心评估设想叫什么？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_044",
+      "question": "具身图灵测试希望AI动物模型在何种能力上接近真实动物？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_045",
+      "question": "该NeuroAI观点论文重点倡导什么研究投入？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_046",
+      "question": "作者为何认为语言和游戏测试不足以覆盖具身智能？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_047",
+      "question": "该文认为神经科学在人工智能历史上扮演什么角色？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_048",
+      "question": "Zador等论文是临床药物试验还是研究观点文章？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_049",
+      "question": "该论文提出的具身测试能否直接代替医学RAG的答案准确率评测？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_085",
+      "question": "比较GASH与BESS两项研究的研究阶段及是否有最终疗效结果。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_086",
+      "question": "GASH与BESS各自采用何种主要终点及评价时间？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_087",
+      "question": "比较GASH格列本脲与BESS表面活性剂的给药方式和疗程安排。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_088",
+      "question": "ADHD Focus Pro与BESS研究客观主要结局的方向分别如何？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_089",
+      "question": "比较Focus Pro试验与BESS在研究对象和对照处理上的区别。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_090",
+      "question": "Focus Pro试验与早期养育干预荟萃分析针对儿童什么年龄阶段，采取何种干预？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_091",
+      "question": "比较Focus Pro试验的客观注意力结果与早期养育干预综述的认知发展结果。",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_092",
+      "question": "两篇研究在证据汇总范围上有何不同？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_093",
+      "question": "屏幕时间队列与养育干预荟萃分析的设计对因果推断有何影响？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_094",
+      "question": "两项儿童发展研究分别采用什么研究对象年龄和结果指标？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_095",
+      "question": "比较两篇NeuroAI观点文献：一篇提出具身测试，另一篇提出哪些研究领域？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_096",
+      "question": "两篇NeuroAI文献是否报告临床随机试验治疗效果？它们的共同性质是什么？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_097",
+      "question": "NeuroAI and Beyond与Zador等论文对具身智能的强调有什么交集与区别？",
+      "development_phase": "baseline"
+    },
+    {
+      "case_id": "v9_098",
+      "question": "比较ADHD数字疗法RCT与屏幕时间队列研究：能否将屏幕使用时长等同于数字干预疗效？",
+      "development_phase": "baseline"
+    }
+  ]
+}
