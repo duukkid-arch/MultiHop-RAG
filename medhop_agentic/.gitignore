@@ -1,0 +1,34 @@
+# Data and research artifacts (not for version control)
+data/
+datasets/
+medhop_original/
+medhop_benchmark_private/
+results/
+outputs/
+checkpoints/
+models/
+*.arrow
+*.parquet
+*.pkl
+*.pt
+*.pth
+*.safetensors
+*.bin
+
+# Local settings / secrets
+.env
+.env.*
+!.env.example
+*.key
+credentials*.json
+
+# Python and editors
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+.vscode/
+.idea/
