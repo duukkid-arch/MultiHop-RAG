@@ -18,6 +18,38 @@ Ordinary RAG typically retrieves evidence once and then predicts an answer. Agen
 
 The current heuristic implementation approximates steps 2–4 with deterministic TF-IDF and similarity scoring. Later experiments will replace fixed heuristics with explicit LLM-based planning and verification.
 
+<!-- AGENTIC_ARCH_START -->
+
+## System Architecture
+
+The current MedHop baseline uses deterministic two-hop retrieval.
+LLM-driven planning and evidence verification are future extensions.
+
+```mermaid
+flowchart TD
+    A["User Question"] --> B["Question Understanding"]
+    B --> C["First-Hop Retrieval"]
+    C --> D["Bridge Evidence Selection"]
+    D --> E["Second-Hop Retrieval"]
+    E --> F["Candidate Answer Scoring"]
+    F --> G["Answer Prediction"]
+    G --> H["Evaluation and Retrieval Trace"]
+
+    E -. "Future: adaptive planning" .-> I["LLM Planner"]
+    I -. "Future: search decisions" .-> C
+    F -. "Future: verification" .-> J["Evidence Verification"]
+```
+
+### How It Works
+
+1. The question and candidate answers are loaded from MedHop.
+2. First-hop retrieval selects relevant supporting passages.
+3. Bridge evidence guides a second retrieval step.
+4. Candidate answers are scored against the retrieved evidence.
+5. Predictions and retrieval traces are saved for evaluation.
+
+<!-- AGENTIC_ARCH_END -->
+
 ## Repository components
 
 | Component | Purpose | Status |
